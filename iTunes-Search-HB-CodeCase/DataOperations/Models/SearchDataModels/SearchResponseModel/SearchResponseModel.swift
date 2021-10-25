@@ -38,6 +38,7 @@ class Result: Codable {
         case shortDescription
         case longDescription
         case wrapperType
+        
     }
     init(artworkUrl100: String?,
          collectionPrice: Double?,

@@ -27,6 +27,36 @@
 		D8536E3B2726F37E00D138EA /* BooksServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E3A2726F37E00D138EA /* BooksServiceProvider.swift */; };
 		D8536E3D2726F46600D138EA /* SoftwareServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E3C2726F46600D138EA /* SoftwareServiceProvider.swift */; };
 		D8536E3F2726F48F00D138EA /* MusicServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E3E2726F48E00D138EA /* MusicServiceProvider.swift */; };
+		D8536E49272702FB00D138EA /* CustomImageViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E48272702FB00D138EA /* CustomImageViewComponent.swift */; };
+		D8536E4B2727032A00D138EA /* CustomImageViewComponentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E4A2727032A00D138EA /* CustomImageViewComponentData.swift */; };
+		D8536E4E272704C400D138EA /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E4D272704C400D138EA /* ImageCacheManager.swift */; };
+		D8536E5127270C2300D138EA /* CustomImageViewComponentContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E5027270C2300D138EA /* CustomImageViewComponentContainer.swift */; };
+		D8536E552727123400D138EA /* LabelPackComponentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E542727123400D138EA /* LabelPackComponentData.swift */; };
+		D8536E572727127C00D138EA /* LabelPackDistributionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E562727127C00D138EA /* LabelPackDistributionData.swift */; };
+		D8536E67272712C300D138EA /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8536E5A272712C300D138EA /* Roboto-Medium.ttf */; };
+		D8536E68272712C300D138EA /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8536E5B272712C300D138EA /* Roboto-Light.ttf */; };
+		D8536E69272712C300D138EA /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8536E5C272712C300D138EA /* Roboto-Regular.ttf */; };
+		D8536E6A272712C300D138EA /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8536E5D272712C300D138EA /* Roboto-MediumItalic.ttf */; };
+		D8536E6B272712C300D138EA /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8536E5E272712C300D138EA /* Roboto-ThinItalic.ttf */; };
+		D8536E6C272712C300D138EA /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8536E5F272712C300D138EA /* Roboto-BoldItalic.ttf */; };
+		D8536E6D272712C300D138EA /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8536E60272712C300D138EA /* Roboto-LightItalic.ttf */; };
+		D8536E6E272712C300D138EA /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8536E61272712C300D138EA /* Roboto-Italic.ttf */; };
+		D8536E6F272712C300D138EA /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = D8536E62272712C300D138EA /* LICENSE.txt */; };
+		D8536E70272712C300D138EA /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8536E63272712C300D138EA /* Roboto-BlackItalic.ttf */; };
+		D8536E71272712C300D138EA /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8536E64272712C300D138EA /* Roboto-Bold.ttf */; };
+		D8536E72272712C300D138EA /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8536E65272712C300D138EA /* Roboto-Thin.ttf */; };
+		D8536E73272712C300D138EA /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D8536E66272712C300D138EA /* Roboto-Black.ttf */; };
+		D8536E76272712E100D138EA /* RobotoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E75272712E100D138EA /* RobotoHelper.swift */; };
+		D8536E782727137B00D138EA /* LabelPackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E772727137B00D138EA /* LabelPackComponent.swift */; };
+		D8536E7C272724C200D138EA /* SearchCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E7B272724C200D138EA /* SearchCollectionView.swift */; };
+		D8536E7E272724C800D138EA /* SearchCollectionViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E7D272724C800D138EA /* SearchCollectionViewData.swift */; };
+		D8536E80272725CC00D138EA /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E7F272725CC00D138EA /* SearchCollectionViewCell.swift */; };
+		D8536E83272729FE00D138EA /* SearchDisplayerItemComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E82272729FE00D138EA /* SearchDisplayerItemComponent.swift */; };
+		D8536E8527272A0300D138EA /* SearchDisplayerItemComponentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E8427272A0300D138EA /* SearchDisplayerItemComponentData.swift */; };
+		D8536E8827272BFB00D138EA /* LoadingCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E8727272BFB00D138EA /* LoadingCellView.swift */; };
+		D8536E8B272739A900D138EA /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E8A272739A900D138EA /* UICollectionView+Extension.swift */; };
+		D8536E8E27273A4600D138EA /* DataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E8D27273A4600D138EA /* DataProviderProtocol.swift */; };
+		D8536E9027273B4400D138EA /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E8F27273B4400D138EA /* UIView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +80,36 @@
 		D8536E3A2726F37E00D138EA /* BooksServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksServiceProvider.swift; sourceTree = "<group>"; };
 		D8536E3C2726F46600D138EA /* SoftwareServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoftwareServiceProvider.swift; sourceTree = "<group>"; };
 		D8536E3E2726F48E00D138EA /* MusicServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicServiceProvider.swift; sourceTree = "<group>"; };
+		D8536E48272702FB00D138EA /* CustomImageViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageViewComponent.swift; sourceTree = "<group>"; };
+		D8536E4A2727032A00D138EA /* CustomImageViewComponentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageViewComponentData.swift; sourceTree = "<group>"; };
+		D8536E4D272704C400D138EA /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		D8536E5027270C2300D138EA /* CustomImageViewComponentContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomImageViewComponentContainer.swift; sourceTree = "<group>"; };
+		D8536E542727123400D138EA /* LabelPackComponentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPackComponentData.swift; sourceTree = "<group>"; };
+		D8536E562727127C00D138EA /* LabelPackDistributionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPackDistributionData.swift; sourceTree = "<group>"; };
+		D8536E5A272712C300D138EA /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		D8536E5B272712C300D138EA /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		D8536E5C272712C300D138EA /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		D8536E5D272712C300D138EA /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		D8536E5E272712C300D138EA /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		D8536E5F272712C300D138EA /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		D8536E60272712C300D138EA /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		D8536E61272712C300D138EA /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		D8536E62272712C300D138EA /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		D8536E63272712C300D138EA /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		D8536E64272712C300D138EA /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		D8536E65272712C300D138EA /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		D8536E66272712C300D138EA /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		D8536E75272712E100D138EA /* RobotoHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RobotoHelper.swift; sourceTree = "<group>"; };
+		D8536E772727137B00D138EA /* LabelPackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelPackComponent.swift; sourceTree = "<group>"; };
+		D8536E7B272724C200D138EA /* SearchCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionView.swift; sourceTree = "<group>"; };
+		D8536E7D272724C800D138EA /* SearchCollectionViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewData.swift; sourceTree = "<group>"; };
+		D8536E7F272725CC00D138EA /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		D8536E82272729FE00D138EA /* SearchDisplayerItemComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDisplayerItemComponent.swift; sourceTree = "<group>"; };
+		D8536E8427272A0300D138EA /* SearchDisplayerItemComponentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDisplayerItemComponentData.swift; sourceTree = "<group>"; };
+		D8536E8727272BFB00D138EA /* LoadingCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCellView.swift; sourceTree = "<group>"; };
+		D8536E8A272739A900D138EA /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		D8536E8D27273A4600D138EA /* DataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderProtocol.swift; sourceTree = "<group>"; };
+		D8536E8F27273B4400D138EA /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,9 +145,9 @@
 			isa = PBXGroup;
 			children = (
 				D8536E46272701AA00D138EA /* DataOperations */,
-				D8536E302726CC4C00D138EA /* Utilities */,
 				D8536E172726B6AF00D138EA /* Components */,
 				D8536E0D2726B5C000D138EA /* Scenes */,
+				D8536E302726CC4C00D138EA /* Utilities */,
 				D8536DFD2725F3CE00D138EA /* ViewController.swift */,
 				D8536DF92725F3CE00D138EA /* AppDelegate.swift */,
 				D8536E022725F3D100D138EA /* Assets.xcassets */,
@@ -117,6 +177,9 @@
 		D8536E172726B6AF00D138EA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D8536E792727246400D138EA /* SearchCollectionComponent */,
+				D8536E532727122100D138EA /* LabelPackComponent */,
+				D8536E47272702D500D138EA /* CustomImageComponent */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -170,6 +233,9 @@
 		D8536E302726CC4C00D138EA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				D8536E892727399800D138EA /* Extensions */,
+				D8536E58272712A800D138EA /* FontManager */,
+				D8536E4C272704B800D138EA /* ImageCacheManager */,
 				D8536E312726CC5600D138EA /* EndpointManager.swift */,
 			);
 			path = Utilities;
@@ -193,6 +259,126 @@
 				D8536E362726D90D00D138EA /* ServiceProviders */,
 			);
 			path = DataOperations;
+			sourceTree = "<group>";
+		};
+		D8536E47272702D500D138EA /* CustomImageComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E48272702FB00D138EA /* CustomImageViewComponent.swift */,
+				D8536E5027270C2300D138EA /* CustomImageViewComponentContainer.swift */,
+				D8536E4A2727032A00D138EA /* CustomImageViewComponentData.swift */,
+			);
+			path = CustomImageComponent;
+			sourceTree = "<group>";
+		};
+		D8536E4C272704B800D138EA /* ImageCacheManager */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E4D272704C400D138EA /* ImageCacheManager.swift */,
+			);
+			path = ImageCacheManager;
+			sourceTree = "<group>";
+		};
+		D8536E532727122100D138EA /* LabelPackComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E542727123400D138EA /* LabelPackComponentData.swift */,
+				D8536E772727137B00D138EA /* LabelPackComponent.swift */,
+				D8536E562727127C00D138EA /* LabelPackDistributionData.swift */,
+			);
+			path = LabelPackComponent;
+			sourceTree = "<group>";
+		};
+		D8536E58272712A800D138EA /* FontManager */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E74272712D100D138EA /* Helpers */,
+				D8536E59272712C300D138EA /* Roboto */,
+			);
+			path = FontManager;
+			sourceTree = "<group>";
+		};
+		D8536E59272712C300D138EA /* Roboto */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E5A272712C300D138EA /* Roboto-Medium.ttf */,
+				D8536E5B272712C300D138EA /* Roboto-Light.ttf */,
+				D8536E5C272712C300D138EA /* Roboto-Regular.ttf */,
+				D8536E5D272712C300D138EA /* Roboto-MediumItalic.ttf */,
+				D8536E5E272712C300D138EA /* Roboto-ThinItalic.ttf */,
+				D8536E5F272712C300D138EA /* Roboto-BoldItalic.ttf */,
+				D8536E60272712C300D138EA /* Roboto-LightItalic.ttf */,
+				D8536E61272712C300D138EA /* Roboto-Italic.ttf */,
+				D8536E62272712C300D138EA /* LICENSE.txt */,
+				D8536E63272712C300D138EA /* Roboto-BlackItalic.ttf */,
+				D8536E64272712C300D138EA /* Roboto-Bold.ttf */,
+				D8536E65272712C300D138EA /* Roboto-Thin.ttf */,
+				D8536E66272712C300D138EA /* Roboto-Black.ttf */,
+			);
+			path = Roboto;
+			sourceTree = "<group>";
+		};
+		D8536E74272712D100D138EA /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E75272712E100D138EA /* RobotoHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D8536E792727246400D138EA /* SearchCollectionComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E8C27273A2200D138EA /* DataProviderProtocol */,
+				D8536E8627272BE100D138EA /* LoadingCellComponent */,
+				D8536E81272729E700D138EA /* SearchDisplayerItemComponent */,
+				D8536E7A2727249900D138EA /* SearchCollectionView */,
+			);
+			path = SearchCollectionComponent;
+			sourceTree = "<group>";
+		};
+		D8536E7A2727249900D138EA /* SearchCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E7B272724C200D138EA /* SearchCollectionView.swift */,
+				D8536E7D272724C800D138EA /* SearchCollectionViewData.swift */,
+				D8536E7F272725CC00D138EA /* SearchCollectionViewCell.swift */,
+			);
+			path = SearchCollectionView;
+			sourceTree = "<group>";
+		};
+		D8536E81272729E700D138EA /* SearchDisplayerItemComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E82272729FE00D138EA /* SearchDisplayerItemComponent.swift */,
+				D8536E8427272A0300D138EA /* SearchDisplayerItemComponentData.swift */,
+			);
+			path = SearchDisplayerItemComponent;
+			sourceTree = "<group>";
+		};
+		D8536E8627272BE100D138EA /* LoadingCellComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E8727272BFB00D138EA /* LoadingCellView.swift */,
+			);
+			path = LoadingCellComponent;
+			sourceTree = "<group>";
+		};
+		D8536E892727399800D138EA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E8A272739A900D138EA /* UICollectionView+Extension.swift */,
+				D8536E8F27273B4400D138EA /* UIView+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D8536E8C27273A2200D138EA /* DataProviderProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E8D27273A4600D138EA /* DataProviderProtocol.swift */,
+			);
+			path = DataProviderProtocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,8 +446,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8536E72272712C300D138EA /* Roboto-Thin.ttf in Resources */,
+				D8536E6F272712C300D138EA /* LICENSE.txt in Resources */,
+				D8536E73272712C300D138EA /* Roboto-Black.ttf in Resources */,
+				D8536E71272712C300D138EA /* Roboto-Bold.ttf in Resources */,
 				D8536E062725F3D100D138EA /* LaunchScreen.storyboard in Resources */,
 				D8536E032725F3D100D138EA /* Assets.xcassets in Resources */,
+				D8536E6C272712C300D138EA /* Roboto-BoldItalic.ttf in Resources */,
+				D8536E69272712C300D138EA /* Roboto-Regular.ttf in Resources */,
+				D8536E6B272712C300D138EA /* Roboto-ThinItalic.ttf in Resources */,
+				D8536E6D272712C300D138EA /* Roboto-LightItalic.ttf in Resources */,
+				D8536E70272712C300D138EA /* Roboto-BlackItalic.ttf in Resources */,
+				D8536E68272712C300D138EA /* Roboto-Light.ttf in Resources */,
+				D8536E6E272712C300D138EA /* Roboto-Italic.ttf in Resources */,
+				D8536E6A272712C300D138EA /* Roboto-MediumItalic.ttf in Resources */,
+				D8536E67272712C300D138EA /* Roboto-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,19 +472,36 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8536E322726CC5600D138EA /* EndpointManager.swift in Sources */,
+				D8536E572727127C00D138EA /* LabelPackDistributionData.swift in Sources */,
+				D8536E552727123400D138EA /* LabelPackComponentData.swift in Sources */,
 				D8536E0F2726B5D300D138EA /* SearchViewController.swift in Sources */,
 				D8536E1D2726BCE000D138EA /* PaginationInfo.swift in Sources */,
+				D8536E4B2727032A00D138EA /* CustomImageViewComponentData.swift in Sources */,
 				D8536E2E2726CC0E00D138EA /* SearchDataRequest.swift in Sources */,
 				D8536E3D2726F46600D138EA /* SoftwareServiceProvider.swift in Sources */,
+				D8536E80272725CC00D138EA /* SearchCollectionViewCell.swift in Sources */,
 				D8536E272726CAF900D138EA /* SearchMusicRequest.swift in Sources */,
+				D8536E83272729FE00D138EA /* SearchDisplayerItemComponent.swift in Sources */,
 				D8536E382726D91F00D138EA /* MoviesServiceProvider.swift in Sources */,
+				D8536E8E27273A4600D138EA /* DataProviderProtocol.swift in Sources */,
+				D8536E49272702FB00D138EA /* CustomImageViewComponent.swift in Sources */,
+				D8536E8827272BFB00D138EA /* LoadingCellView.swift in Sources */,
 				D8536E3F2726F48F00D138EA /* MusicServiceProvider.swift in Sources */,
 				D8536E2B2726CB6000D138EA /* SearchSoftwareRequest.swift in Sources */,
 				D8536E292726CB4800D138EA /* SearchBookRequest.swift in Sources */,
+				D8536E8527272A0300D138EA /* SearchDisplayerItemComponentData.swift in Sources */,
+				D8536E7E272724C800D138EA /* SearchCollectionViewData.swift in Sources */,
 				D8536E132726B61C00D138EA /* SearchViewModel.swift in Sources */,
+				D8536E9027273B4400D138EA /* UIView+Extensions.swift in Sources */,
+				D8536E76272712E100D138EA /* RobotoHelper.swift in Sources */,
 				D8536E202726BD9600D138EA /* SearchMovieRequest.swift in Sources */,
+				D8536E7C272724C200D138EA /* SearchCollectionView.swift in Sources */,
+				D8536E4E272704C400D138EA /* ImageCacheManager.swift in Sources */,
+				D8536E8B272739A900D138EA /* UICollectionView+Extension.swift in Sources */,
 				D8536DFE2725F3CE00D138EA /* ViewController.swift in Sources */,
 				D8536E1A2726B7A400D138EA /* SearchResponseModel.swift in Sources */,
+				D8536E5127270C2300D138EA /* CustomImageViewComponentContainer.swift in Sources */,
+				D8536E782727137B00D138EA /* LabelPackComponent.swift in Sources */,
 				D8536DFA2725F3CE00D138EA /* AppDelegate.swift in Sources */,
 				D8536E3B2726F37E00D138EA /* BooksServiceProvider.swift in Sources */,
 			);
