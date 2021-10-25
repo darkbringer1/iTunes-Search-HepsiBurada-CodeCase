@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "BaseComponents",
+        "repositoryURL": "https://github.com/darkbringer1/BaseComponents.git",
+        "state": {
+          "branch": null,
+          "revision": "db5fbb04fd5221583d9f38dfd886cd6058d1cbdc",
+          "version": "1.2.4"
+        }
+      },
+      {
+        "package": "DefaultNetworkOperationPackage",
+        "repositoryURL": "https://github.com/emircanaydin/DefaultNetworkOperationPackage.git",
+        "state": {
+          "branch": null,
+          "revision": "eddd42a5b118531cfb136bba4ac6aab7aebf06de",
+          "version": "1.4.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
