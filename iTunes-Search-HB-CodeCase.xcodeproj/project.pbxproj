@@ -84,9 +84,8 @@
 		D8536DF82725F3CE00D138EA /* iTunes-Search-HB-CodeCase */ = {
 			isa = PBXGroup;
 			children = (
-				D8536E362726D90D00D138EA /* ServiceProviders */,
+				D8536E46272701AA00D138EA /* DataOperations */,
 				D8536E302726CC4C00D138EA /* Utilities */,
-				D8536E182726B79B00D138EA /* Models */,
 				D8536E172726B6AF00D138EA /* Components */,
 				D8536E0D2726B5C000D138EA /* Scenes */,
 				D8536DFD2725F3CE00D138EA /* ViewController.swift */,
@@ -125,6 +124,7 @@
 		D8536E182726B79B00D138EA /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D8536E1C2726BCE000D138EA /* PaginationInfo.swift */,
 				D8536E1B2726BCCE00D138EA /* SearchDataModels */,
 			);
 			path = Models;
@@ -135,7 +135,6 @@
 			children = (
 				D8536E2F2726CC2000D138EA /* SearchResponseModel */,
 				D8536E1E2726BD8000D138EA /* SearchRequestModel */,
-				D8536E1C2726BCE000D138EA /* PaginationInfo.swift */,
 			);
 			path = SearchDataModels;
 			sourceTree = "<group>";
@@ -185,6 +184,15 @@
 				D8536E3E2726F48E00D138EA /* MusicServiceProvider.swift */,
 			);
 			path = ServiceProviders;
+			sourceTree = "<group>";
+		};
+		D8536E46272701AA00D138EA /* DataOperations */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E182726B79B00D138EA /* Models */,
+				D8536E362726D90D00D138EA /* ServiceProviders */,
+			);
+			path = DataOperations;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
