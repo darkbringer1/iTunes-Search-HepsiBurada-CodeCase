@@ -13,49 +13,70 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     
     private var mainComponent: SearchCollectionView!
     
+    
     override func prepareViewControllerConfigurations() {
         super.prepareViewControllerConfigurations()
         view.backgroundColor = .blue
-//        addSearchBar()
+        addSearchBar()
         addMainComponent()
+        addViewModelListeners()
+        viewModel.getData()
     }
     
     private func addMainComponent() {
         mainComponent = SearchCollectionView()
         mainComponent.translatesAutoresizingMaskIntoConstraints = false
         mainComponent.delegate = viewModel
-        
+
         view.addSubview(mainComponent)
-        
+
         NSLayoutConstraint.activate([
-        
+
             mainComponent.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             mainComponent.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             mainComponent.topAnchor.constraint(equalTo: view.topAnchor),
             mainComponent.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        
+
         ])
     }
-    
-    
-//    func addSearchBar() {
-//        view.addSubview(searchBar)
-//        self.navigationItem.titleView = searchBar
-//
-//
-//    }
-    
-//    lazy var searchBar: UISearchBar = {
-//        let temp = UISearchBar()
-//        temp.translatesAutoresizingMaskIntoConstraints = false
-//        temp.placeholder = "Search"
-//        temp.showsScopeBar = true
-//        temp.barTintColor = UIColor(white: 0.8, alpha: 0.1)
-//        temp.scopeButtonTitles = ["Movies", "Music", "Apps", "Books"]
-//        temp.showsCancelButton = true
-//        temp.tintColor = .red
-//        return temp
-//    }()
+
+    private func addViewModelListeners() {
+        viewModel.subscribeViewState { [weak self] state in
+            switch state {
+                case .loading:
+                    return
+                case .done:
+                    self?.mainComponent.reloadCollectionView()
+                default:
+                    break
+            }
+        }
+        
+    }
+
+    func addSearchBar() {
+       
+        
+        
+        
+    }
+
     
 
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("\(searchText)")
+    }
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        print("begin editing")
+    }
+    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+        print("end editing")
+    }
+    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+        print("\(selectedScope)")
+    }
 }

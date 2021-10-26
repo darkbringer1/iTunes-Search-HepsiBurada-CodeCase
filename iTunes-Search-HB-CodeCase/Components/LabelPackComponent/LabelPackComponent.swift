@@ -11,7 +11,7 @@ import BaseComponents
 class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
     
     private lazy var mainStackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [])
+        let stack = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel, shortDescription])
         stack.translatesAutoresizingMaskIntoConstraints = false
         stack.alignment = .center
         stack.distribution = .fill
@@ -46,11 +46,25 @@ class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
         return subtitle
     }()
     
+    private lazy var shortDescription: UILabel = {
+        let desc = UILabel()
+        desc.translatesAutoresizingMaskIntoConstraints = false
+        desc.textColor = .black
+        desc.text = " "
+        desc.lineBreakMode = .byWordWrapping
+        desc.numberOfLines = 0
+        desc.contentMode = .center
+        desc.textAlignment = .center
+        desc.font = RobotoHelper.regular(16).value
+        return desc
+    }()
+    
     override func loadDataView() {
         super.loadDataView()
         guard let data = returnData() else { return }
         titleLabel.text = data.title
         subtitleLabel.text = data.subtitle
+        shortDescription.text = data.shortDescription
     }
     override func setupViewConfigurations() {
         super.setupViewConfigurations()

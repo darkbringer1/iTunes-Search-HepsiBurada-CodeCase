@@ -57,6 +57,10 @@
 		D8536E8B272739A900D138EA /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E8A272739A900D138EA /* UICollectionView+Extension.swift */; };
 		D8536E8E27273A4600D138EA /* DataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E8D27273A4600D138EA /* DataProviderProtocol.swift */; };
 		D8536E9027273B4400D138EA /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E8F27273B4400D138EA /* UIView+Extensions.swift */; };
+		D8536E932727618500D138EA /* SearchViewDataFormatterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E922727618500D138EA /* SearchViewDataFormatterProtocol.swift */; };
+		D8536E95272761BF00D138EA /* SearchViewDataFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E94272761BF00D138EA /* SearchViewDataFormatter.swift */; };
+		D8536E9827280F1900D138EA /* SearchViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E9727280F1900D138EA /* SearchViewBuilder.swift */; };
+		D8536E9A27281CFA00D138EA /* ItunesServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E9927281CFA00D138EA /* ItunesServiceProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +114,10 @@
 		D8536E8A272739A900D138EA /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		D8536E8D27273A4600D138EA /* DataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderProtocol.swift; sourceTree = "<group>"; };
 		D8536E8F27273B4400D138EA /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
+		D8536E922727618500D138EA /* SearchViewDataFormatterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewDataFormatterProtocol.swift; sourceTree = "<group>"; };
+		D8536E94272761BF00D138EA /* SearchViewDataFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewDataFormatter.swift; sourceTree = "<group>"; };
+		D8536E9727280F1900D138EA /* SearchViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewBuilder.swift; sourceTree = "<group>"; };
+		D8536E9927281CFA00D138EA /* ItunesServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesServiceProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +178,9 @@
 			children = (
 				D8536E0E2726B5D300D138EA /* SearchViewController.swift */,
 				D8536E122726B61C00D138EA /* SearchViewModel.swift */,
+				D8536E9727280F1900D138EA /* SearchViewBuilder.swift */,
+				D8536E94272761BF00D138EA /* SearchViewDataFormatter.swift */,
+				D8536E922727618500D138EA /* SearchViewDataFormatterProtocol.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -236,7 +247,7 @@
 				D8536E892727399800D138EA /* Extensions */,
 				D8536E58272712A800D138EA /* FontManager */,
 				D8536E4C272704B800D138EA /* ImageCacheManager */,
-				D8536E312726CC5600D138EA /* EndpointManager.swift */,
+				D8536E9127275AC700D138EA /* EndpointManager */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -244,10 +255,8 @@
 		D8536E362726D90D00D138EA /* ServiceProviders */ = {
 			isa = PBXGroup;
 			children = (
-				D8536E372726D91F00D138EA /* MoviesServiceProvider.swift */,
-				D8536E3A2726F37E00D138EA /* BooksServiceProvider.swift */,
-				D8536E3C2726F46600D138EA /* SoftwareServiceProvider.swift */,
-				D8536E3E2726F48E00D138EA /* MusicServiceProvider.swift */,
+				D8536E9B27281CFE00D138EA /* DiscardedServiceProviders */,
+				D8536E9927281CFA00D138EA /* ItunesServiceProvider.swift */,
 			);
 			path = ServiceProviders;
 			sourceTree = "<group>";
@@ -381,6 +390,25 @@
 			path = DataProviderProtocol;
 			sourceTree = "<group>";
 		};
+		D8536E9127275AC700D138EA /* EndpointManager */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E312726CC5600D138EA /* EndpointManager.swift */,
+			);
+			path = EndpointManager;
+			sourceTree = "<group>";
+		};
+		D8536E9B27281CFE00D138EA /* DiscardedServiceProviders */ = {
+			isa = PBXGroup;
+			children = (
+				D8536E372726D91F00D138EA /* MoviesServiceProvider.swift */,
+				D8536E3A2726F37E00D138EA /* BooksServiceProvider.swift */,
+				D8536E3C2726F46600D138EA /* SoftwareServiceProvider.swift */,
+				D8536E3E2726F48E00D138EA /* MusicServiceProvider.swift */,
+			);
+			path = DiscardedServiceProviders;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -481,6 +509,7 @@
 				D8536E3D2726F46600D138EA /* SoftwareServiceProvider.swift in Sources */,
 				D8536E80272725CC00D138EA /* SearchCollectionViewCell.swift in Sources */,
 				D8536E272726CAF900D138EA /* SearchMusicRequest.swift in Sources */,
+				D8536E9827280F1900D138EA /* SearchViewBuilder.swift in Sources */,
 				D8536E83272729FE00D138EA /* SearchDisplayerItemComponent.swift in Sources */,
 				D8536E382726D91F00D138EA /* MoviesServiceProvider.swift in Sources */,
 				D8536E8E27273A4600D138EA /* DataProviderProtocol.swift in Sources */,
@@ -494,13 +523,16 @@
 				D8536E132726B61C00D138EA /* SearchViewModel.swift in Sources */,
 				D8536E9027273B4400D138EA /* UIView+Extensions.swift in Sources */,
 				D8536E76272712E100D138EA /* RobotoHelper.swift in Sources */,
+				D8536E9A27281CFA00D138EA /* ItunesServiceProvider.swift in Sources */,
 				D8536E202726BD9600D138EA /* SearchMovieRequest.swift in Sources */,
 				D8536E7C272724C200D138EA /* SearchCollectionView.swift in Sources */,
 				D8536E4E272704C400D138EA /* ImageCacheManager.swift in Sources */,
 				D8536E8B272739A900D138EA /* UICollectionView+Extension.swift in Sources */,
 				D8536DFE2725F3CE00D138EA /* ViewController.swift in Sources */,
 				D8536E1A2726B7A400D138EA /* SearchResponseModel.swift in Sources */,
+				D8536E932727618500D138EA /* SearchViewDataFormatterProtocol.swift in Sources */,
 				D8536E5127270C2300D138EA /* CustomImageViewComponentContainer.swift in Sources */,
+				D8536E95272761BF00D138EA /* SearchViewDataFormatter.swift in Sources */,
 				D8536E782727137B00D138EA /* LabelPackComponent.swift in Sources */,
 				D8536DFA2725F3CE00D138EA /* AppDelegate.swift in Sources */,
 				D8536E3B2726F37E00D138EA /* BooksServiceProvider.swift in Sources */,

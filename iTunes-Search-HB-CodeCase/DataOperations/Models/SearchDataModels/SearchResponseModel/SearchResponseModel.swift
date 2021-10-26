@@ -11,21 +11,21 @@ import Foundation
 class SearchResponseModel: Codable {
     
     let resultCount: Int?
-    let results: [Result]?
+    let results: [SearchResult]
     
-    init(resultCount: Int?, results: [Result]?) {
+    init(resultCount: Int?, results: [SearchResult]) {
         self.resultCount = resultCount
         self.results = results
     }
 }
 
-// MARK: - Result
-class Result: Codable {
+// MARK: - SearchResult
+class SearchResult: Codable {
     
     let artworkUrl100: String?
     let collectionPrice: Double?
     let collectionName: String?
-    let releaseDate: Date?
+    let releaseDate: String?
     let shortDescription: String?
     let longDescription: String?
     let wrapperType: WrapperType?
@@ -43,7 +43,7 @@ class Result: Codable {
     init(artworkUrl100: String?,
          collectionPrice: Double?,
          collectionName: String?,
-         releaseDate: Date?,
+         releaseDate: String?,
          shortDescription: String?,
          longDescription: String?,
          wrapperType: WrapperType?) {

@@ -18,12 +18,13 @@ enum EndpointManager {
         var description: String {
             switch self {
                 case .base:
-                    return "https://itunes.apple.com/search"
+                    return "https://itunes.apple.com"
             }
         }
     }
     
     enum Paths: CustomStringConvertible {
+        case search
         case movie
         case music
         case ebook
@@ -32,18 +33,20 @@ enum EndpointManager {
         
         var description: String {
             switch self {
+                case .search:
+                    return "search"
                 case .movie:
                     return "movie"
                 case .ebook:
                     return "ebook"
                 case .music:
-                    return "music"
+                    return "musicTrack"
                 case .software:
                     return "software"
                 case .term(let term):
-                    return "term=\(term)"
+                    return "\(term)"
             }
         }
     }
-    
 }
+

@@ -74,8 +74,7 @@ class SearchCollectionView: GenericBaseView<SearchCollectionViewData> {
 extension SearchCollectionView: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return delegate?.askNumberOfItem(in: section) ?? 0
-        return 20
+        return delegate?.askNumberOfItem(in: section) ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -117,7 +116,7 @@ extension SearchCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = (UIScreen.main.bounds.width - 50) / 2
-        let height = (UIScreen.main.bounds.height - 50) / 2
+        let height = (UIScreen.main.bounds.height - 50) / 3
         return CGSize(width: width, height: height)
         
     }
