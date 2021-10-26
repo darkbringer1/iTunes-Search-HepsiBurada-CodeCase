@@ -12,15 +12,14 @@ import DefaultNetworkOperationPackage
 class SearchViewController: BaseViewController<SearchViewModel> {
     
     private var mainComponent: SearchCollectionView!
-    
+    private let searchBar = UISearchBar()
     
     override func prepareViewControllerConfigurations() {
         super.prepareViewControllerConfigurations()
         view.backgroundColor = .blue
-        addSearchBar()
+        addSearchButton()
         addMainComponent()
         addViewModelListeners()
-        viewModel.getData()
     }
     
     private func addMainComponent() {
@@ -40,6 +39,9 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         ])
     }
 
+    
+    //MARK: - PRIVATE METHODS
+
     private func addViewModelListeners() {
         viewModel.subscribeViewState { [weak self] state in
             switch state {
@@ -51,23 +53,55 @@ class SearchViewController: BaseViewController<SearchViewModel> {
                     break
             }
         }
-        
     }
-
-    func addSearchBar() {
-       
+    private func addSearchButton() {
+        searchBar.sizeToFit()
+        navigationItem.title = "iTunes Search"
+        navigationController?.navigationBar.prefersLargeTitles = true
+        searchBar.delegate = self
         
-        
-        
+        searchBar.scopeButtonTitles = ["Movies", "Apps", "Books", "Music"]
+        searchBar.showsScopeBar = true
+        showSearchBarButton(shouldShow: true)
     }
-
     
-
+    //button function from the magnifying glass icon in navigationBar right item
+    @objc private func handleShowSearchBar() {
+        search(shouldShow: true)
+        navigationItem.rightBarButtonItem = nil
+        searchBar.becomeFirstResponder()
+    }
+    
+    private func showSearchBarButton(shouldShow: Bool) {
+        if shouldShow {
+            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
+                                                                target: self,
+                                                                action: #selector(handleShowSearchBar))
+            
+        } else {
+            navigationItem.titleView = nil
+        }
+    }
+    
+    //when we push the search icon we should show the search bar and when we hit the cancel button we need to hide search bar.
+    //calling this func in Delegate cancel func and addSearchBar func
+    private func search(shouldShow: Bool) {
+        
+        //when we hit the cancel button, search func will be false and will hide the magnifying glass button
+        showSearchBarButton(shouldShow: !shouldShow)
+        searchBar.showsCancelButton = shouldShow
+        
+        //if its false we need searchbar to show the title, if its true we need to show search bar
+        navigationItem.titleView = shouldShow ? searchBar : nil
+    }
+    
 }
 
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.getData(with: searchText)
+        mainComponent.reloadCollectionView()
         print("\(searchText)")
     }
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
@@ -79,4 +113,9 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         print("\(selectedScope)")
     }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        print("cancel tapped")
+        search(shouldShow: false)
+    }
+    
 }

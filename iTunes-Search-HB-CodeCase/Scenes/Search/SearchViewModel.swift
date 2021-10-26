@@ -18,13 +18,11 @@ class SearchViewModel {
     }
     
     //MARK: - ACCESSABLE METHODS FROM VC
-    
-    
 
-    func getData() {
+    func getData(with term: String?) {
         searchViewState?(.loading)
         do {
-            guard let urlRequest = try? ItunesServiceProvider(request: getMoviesSearchRequest()).returnUrlRequest() else { return }
+            guard let urlRequest = try? ItunesServiceProvider(request: getMoviesSearchRequest(with: term)).returnUrlRequest() else { return }
             fireApiCall(with: urlRequest, with: dataListener)
         }
     }
@@ -39,10 +37,10 @@ class SearchViewModel {
         APIManager.shared.executeRequest(urlRequest: request, completion: completion)
     }
     
-    private func getMoviesSearchRequest() -> SearchDataRequest {
+    private func getMoviesSearchRequest(with term: String?) -> SearchDataRequest {
         return SearchDataRequest(wrapperType: nil,
                                  entity: Paths.music.description,
-                                 term: "jack",
+                                 term: term,
                                  offset: dataFormatter.paginationData.offset,
                                  limit: dataFormatter.paginationData.limit)
     }
@@ -83,10 +81,10 @@ extension SearchViewModel: DataProviderProtocol {
     func isLoadingCell(for index: Int) -> Bool {
         return index >= dataFormatter.getCount()
     }
-    func getMoreData() {
+    func getMoreData(with term: String) {
         guard dataFormatter.paginationData.checkLoadingMore() else { return }
         dataFormatter.paginationData.nextOffset()
-        getData()
+        getData(with: term)
     }
     func selectedItem(at index: Int) {
         print("index: \(index)")
