@@ -39,7 +39,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         ])
     }
 
-    
+
     //MARK: - PRIVATE METHODS
 
     private func addViewModelListeners() {
@@ -53,11 +53,15 @@ class SearchViewController: BaseViewController<SearchViewModel> {
                     break
             }
         }
+        viewModel.subscribeDetailViewState { [weak self] data in
+            self?.fireDetailView(with: data)
+        }
     }
+    
     private func addSearchButton() {
         searchBar.sizeToFit()
         navigationItem.title = "iTunes Search"
-        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = false
         searchBar.delegate = self
         
         searchBar.scopeButtonTitles = ["Movies", "Apps", "Books", "Music"]
@@ -66,12 +70,6 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     }
     
     //button function from the magnifying glass icon in navigationBar right item
-    @objc private func handleShowSearchBar() {
-        search(shouldShow: true)
-        navigationItem.rightBarButtonItem = nil
-        searchBar.becomeFirstResponder()
-    }
-    
     private func showSearchBarButton(shouldShow: Bool) {
         if shouldShow {
             navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
@@ -82,6 +80,12 @@ class SearchViewController: BaseViewController<SearchViewModel> {
             navigationItem.titleView = nil
         }
     }
+    @objc private func handleShowSearchBar() {
+        search(shouldShow: true)
+        navigationItem.rightBarButtonItem = nil
+        searchBar.becomeFirstResponder()
+    }
+    
     
     //when we push the search icon we should show the search bar and when we hit the cancel button we need to hide search bar.
     //calling this func in Delegate cancel func and addSearchBar func
@@ -93,6 +97,12 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         
         //if its false we need searchbar to show the title, if its true we need to show search bar
         navigationItem.titleView = shouldShow ? searchBar : nil
+    }
+    
+    private func fireDetailView(with data: ItemDetailRequest) {
+        let viewController = ItemDetailViewBuilder.build(with: data)
+        
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 }
@@ -112,6 +122,7 @@ extension SearchViewController: UISearchBarDelegate {
     }
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         print("\(selectedScope)")
+        
     }
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print("cancel tapped")

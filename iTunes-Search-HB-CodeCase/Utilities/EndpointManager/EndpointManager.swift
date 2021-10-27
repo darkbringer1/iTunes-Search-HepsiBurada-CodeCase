@@ -29,10 +29,12 @@ enum EndpointManager {
         case music
         case ebook
         case software
-        case term(String)
+        case lookup
         
         var description: String {
             switch self {
+                case .lookup:
+                    return "lookup"
                 case .search:
                     return "search"
                 case .movie:
@@ -43,8 +45,6 @@ enum EndpointManager {
                     return "musicTrack"
                 case .software:
                     return "software"
-                case .term(let term):
-                    return "\(term)"
             }
         }
     }

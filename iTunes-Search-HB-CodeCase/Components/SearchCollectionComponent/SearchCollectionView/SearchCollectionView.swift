@@ -31,6 +31,7 @@ class SearchCollectionView: GenericBaseView<SearchCollectionViewData> {
     override func setupViewConfigurations() {
         super.setupViewConfigurations()
         //will call empty view method
+        
     }
     
     override func addMajorViewComponents() {

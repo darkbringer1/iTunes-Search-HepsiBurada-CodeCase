@@ -22,5 +22,7 @@ protocol SearchViewDataFormatterProtocol {
     
     func getItem(at index: Int) -> GenericDataProtocol?
     
+    func getItemId(at index: Int) -> Int
+    
 }
 

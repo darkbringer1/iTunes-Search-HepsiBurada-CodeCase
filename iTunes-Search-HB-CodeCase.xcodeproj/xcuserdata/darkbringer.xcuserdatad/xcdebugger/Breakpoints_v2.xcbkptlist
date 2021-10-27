@@ -3,4 +3,102 @@
    uuid = "6B28984E-D21A-459C-B527-80D284FFA5F3"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "644742ED-E264-4819-85C2-0E301DF4F0C2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iTunes-Search-HB-CodeCase/Scenes/Detail/ItemDetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "getData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A7A0C822-E6AE-467B-A93C-5018907A2F16"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iTunes-Search-HB-CodeCase/Scenes/Detail/ItemDetailViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "getData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDE70895-7F62-462C-8992-D6F30CBAD6A2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iTunes-Search-HB-CodeCase/Scenes/Search/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "prepareViewControllerConfigurations()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "060B26E0-EE72-49D7-ABC9-F103DAF56CD3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iTunes-Search-HB-CodeCase/Scenes/Search/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "addViewModelListeners()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "060B26E0-EE72-49D7-ABC9-F103DAF56CD3 - 117dc457c85fef02"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "iTunes_Search_HB_CodeCase.SearchViewController.addViewModelListeners() -&gt; ()"
+                  moduleName = "iTunes-Search-HB-CodeCase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/darkbringer/Desktop/Coding%20Adventure/Aylar/Oct2021/iTunes-Search-HB-CodeCase/iTunes-Search-HB-CodeCase/Scenes/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "431">
+               </Location>
+               <Location
+                  uuid = "060B26E0-EE72-49D7-ABC9-F103DAF56CD3 - a0d3dc75d8ed0f59"
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #2 (iTunes_Search_HB_CodeCase.ItemDetailRequest) -&gt; () in iTunes_Search_HB_CodeCase.SearchViewController.addViewModelListeners() -&gt; ()"
+                  moduleName = "iTunes-Search-HB-CodeCase"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/darkbringer/Desktop/Coding%20Adventure/Aylar/Oct2021/iTunes-Search-HB-CodeCase/iTunes-Search-HB-CodeCase/Scenes/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

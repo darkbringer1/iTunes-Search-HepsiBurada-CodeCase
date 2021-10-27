@@ -12,18 +12,24 @@ class SearchViewModel {
     
     private var searchViewState: ((ViewState) -> Void)?
     private var dataFormatter: SearchViewDataFormatterProtocol
-    
+    private var detailViewState: ((ItemDetailRequest) -> Void)?
+
     init(dataFormatter: SearchViewDataFormatterProtocol) {
         self.dataFormatter = dataFormatter
     }
     
     //MARK: - ACCESSABLE METHODS FROM VC
-
+    
+    func subscribeDetailViewState(with completion: @escaping (ItemDetailRequest) -> Void) {
+        detailViewState = completion
+    }
+    
     func getData(with term: String?) {
         searchViewState?(.loading)
         do {
             guard let urlRequest = try? ItunesServiceProvider(request: getMoviesSearchRequest(with: term)).returnUrlRequest() else { return }
             fireApiCall(with: urlRequest, with: dataListener)
+            print("\(urlRequest)")
         }
     }
     
@@ -35,6 +41,7 @@ class SearchViewModel {
     
     private func fireApiCall(with request: URLRequest, with completion: @escaping (Result<SearchResponseModel, ErrorResponse>) -> Void) {
         APIManager.shared.executeRequest(urlRequest: request, completion: completion)
+        
     }
     
     private func getMoviesSearchRequest(with term: String?) -> SearchDataRequest {
@@ -89,6 +96,7 @@ extension SearchViewModel: DataProviderProtocol {
     func selectedItem(at index: Int) {
         print("index: \(index)")
         //detail view will show according to below methods(to be added
+        detailViewState?(ItemDetailRequest(id: dataFormatter.getItemId(at: index)))
     }
     
 }

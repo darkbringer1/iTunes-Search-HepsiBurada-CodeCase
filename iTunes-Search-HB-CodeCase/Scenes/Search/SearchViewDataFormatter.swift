@@ -36,10 +36,8 @@ class SearchViewDataFormatter: SearchViewDataFormatterProtocol {
     
     func getItem(at index: Int) -> GenericDataProtocol? {
         
-        
-        
         let title = list[index].collectionName ?? "no collection"
-        let subtitle = list[index].collectionPrice ?? 0.00
+        let subtitle = list[index].trackId ?? Int(0.00)
         let shortDescription = list[index].shortDescription ?? "no short description"
         
         let labelPack = LabelPackComponentData(title: "Collection: " + title,
@@ -56,4 +54,9 @@ class SearchViewDataFormatter: SearchViewDataFormatterProtocol {
     private func createImageData(by value: String) -> String {
         return "\(value)"
     }
+    
+    func getItemId(at index: Int) -> Int {
+        return list[index].trackId
+    }
+    
 }
