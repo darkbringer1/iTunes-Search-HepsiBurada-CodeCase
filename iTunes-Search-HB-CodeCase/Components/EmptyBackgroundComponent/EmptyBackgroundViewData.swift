@@ -7,7 +7,7 @@
 
 import Foundation
 
-class EmptyBackgrounViewData {
+class EmptyBackgroundViewData {
   
     private(set) var labelPackData: LabelPackComponentData
     

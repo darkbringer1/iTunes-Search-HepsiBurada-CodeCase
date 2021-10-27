@@ -12,6 +12,7 @@ class SearchCollectionView: GenericBaseView<SearchCollectionViewData> {
     
     //this will be active when provider protocol is finished
     weak var delegate: DataProviderProtocol?
+    private var emptyView: EmptyBackgroundView!
     
     lazy var componentCollection: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -31,7 +32,7 @@ class SearchCollectionView: GenericBaseView<SearchCollectionViewData> {
     override func setupViewConfigurations() {
         super.setupViewConfigurations()
         //will call empty view method
-        
+        setupBackgroundView()
     }
     
     override func addMajorViewComponents() {
@@ -54,6 +55,8 @@ class SearchCollectionView: GenericBaseView<SearchCollectionViewData> {
     
     private func emptyViewActivationControl() {
         //will call empty view accordig to the collection view count. if zero, show empty view as the background of the collection view
+        emptyView.activationManager(by: ((delegate?.askNumberOfItem(in: 0) ?? 0) <= 0))
+        
     }
     
     //need to call reload functions in main thread
@@ -68,7 +71,16 @@ class SearchCollectionView: GenericBaseView<SearchCollectionViewData> {
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
         return delegate?.isLoadingCell(for: indexPath.row) ?? false
     }
-    
+    private func setupBackgroundView() {
+        emptyView = EmptyBackgroundView(frame: .zero,
+                                        data: EmptyBackgroundViewData(
+                                            labelPackData: LabelPackComponentData(
+                                                title: "Warning",
+                                                subtitle: "Please search anything you want on the search bar",
+                                                shortDescription: "You can access the search bar by tapping on the top right corner.")))
+        
+        componentCollection.backgroundView = emptyView
+    }
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource

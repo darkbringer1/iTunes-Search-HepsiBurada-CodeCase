@@ -8,7 +8,7 @@
 import UIKit
 import BaseComponents
 
-class EmptyBackgroundView: GenericBaseView<EmptyBackgrounViewData> {
+class EmptyBackgroundView: GenericBaseView<EmptyBackgroundViewData> {
 
     private lazy var containerView: UIView = {
         let view = UIView()
@@ -36,8 +36,8 @@ class EmptyBackgroundView: GenericBaseView<EmptyBackgrounViewData> {
         temp.layer.cornerRadius = 5
         temp.clipsToBounds = true
         temp.image = UIImage(named: "itunes-icon")
-        temp.heightAnchor.constraint(equalToConstant: 300).isActive = true
-        temp.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        temp.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40).isActive = true
+        temp.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40).isActive = true
         return temp
     }()
     
