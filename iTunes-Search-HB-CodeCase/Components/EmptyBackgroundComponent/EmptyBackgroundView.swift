@@ -9,7 +9,7 @@ import UIKit
 import BaseComponents
 
 class EmptyBackgroundView: GenericBaseView<EmptyBackgrounViewData> {
-    
+
     private lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -35,10 +35,56 @@ class EmptyBackgroundView: GenericBaseView<EmptyBackgrounViewData> {
         temp.translatesAutoresizingMaskIntoConstraints = false
         temp.layer.cornerRadius = 5
         temp.clipsToBounds = true
-        temp.image = UIImage(named: "emptyView")
+        temp.image = UIImage(named: "itunes-icon")
         temp.heightAnchor.constraint(equalToConstant: 300).isActive = true
         temp.widthAnchor.constraint(equalToConstant: 300).isActive = true
         return temp
     }()
+    
+    private lazy var infoView: LabelPackComponent = {
+        let temp = LabelPackComponent(data: getLabelPackComponentData())
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        return temp
+    }()
+    
+    override func addMajorViewComponents() {
+        super.addMajorViewComponents()
+        addComponents()
+    }
+    
+    private func addComponents() {
+        addSubview(containerView)
+        containerView.addSubview(mainStackView)
+        
+        NSLayoutConstraint.activate([
+            
+            containerView.topAnchor.constraint(equalTo: topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            mainStackView.centerXAnchor.constraint(equalTo: containerView.centerXAnchor),
+            mainStackView.centerYAnchor.constraint(equalTo: containerView.centerYAnchor)
+            
+        ])
+    }
+    
+    override func loadDataView() {
+        super.loadDataView()
+        guard let data = returnData() else { return }
+        infoView.setData(by: data.labelPackData)
+    }
+    
+    func activationManager(by value: Bool) {
+        isHidden = !value
+    }
+    
+    private func getLabelPackComponentData() -> LabelPackComponentData {
+        return LabelPackComponentData()
+            .setTitleLabelDistributionData(by: LabelDistributionData().setContentMode(by: .center).setTextAlignment(by: .center).setNumberOfLines(by: 1).setLineBreakMode(by: .byWordWrapping).setFont(by: RobotoHelper.bold(24).value))
+            .setSubtitleLabelDistributionData(by: LabelDistributionData().setContentMode(by: .center).setTextAlignment(by: .center).setNumberOfLines(by: 2).setLineBreakMode(by: .byWordWrapping).setFont(by: RobotoHelper.regular(16).value))
+            .setSpacing(by: 10)
+            .setStackViewAlignment(by: .fill)
+    }
     
 }

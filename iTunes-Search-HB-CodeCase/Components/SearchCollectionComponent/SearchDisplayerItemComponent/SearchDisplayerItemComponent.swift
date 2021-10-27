@@ -30,16 +30,16 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
         return view
     }()
     
-    private lazy var mainStackView: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [imageContainer, infoView])
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.isUserInteractionEnabled = true
-        temp.alignment = .center
-        temp.distribution = .fill
-        temp.axis = .vertical
-        temp.spacing = 5
-        return temp
-    }()
+//    private lazy var mainStackView: UIStackView = {
+//        let temp = UIStackView(arrangedSubviews: [imageContainer, infoView])
+//        temp.translatesAutoresizingMaskIntoConstraints = false
+//        temp.isUserInteractionEnabled = true
+//        temp.alignment = .center
+//        temp.distribution = .fill
+//        temp.axis = .vertical
+//        temp.spacing = 5
+//        return temp
+//    }()
     
     private lazy var imageContainer: CustomImageViewComponentContainer = {
         let temp = CustomImageViewComponentContainer()
@@ -48,6 +48,14 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
         temp.clipsToBounds = true
         return temp
     }()
+    
+    private lazy var gradient: CAGradientLayer = {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [UIColor.clear.cgColor,    UIColor.black.cgColor]
+//        gradientLayer.opacity = 0.7
+        return gradientLayer
+    }()
+    
     private lazy var infoView: LabelPackComponent = {
         let info = LabelPackComponent()
         info.translatesAutoresizingMaskIntoConstraints = false
@@ -63,7 +71,9 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
     private func addComponents() {
         addSubview(shadowContainerView)
         shadowContainerView.addSubview(containerView)
-        containerView.addSubview(mainStackView)
+        containerView.addSubview(imageContainer)
+        imageContainer.layer.addSublayer(gradient)
+        imageContainer.addSubview(infoView)
         
         NSLayoutConstraint.activate([
             
@@ -77,10 +87,13 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
             containerView.leadingAnchor.constraint(equalTo: shadowContainerView.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: shadowContainerView.trailingAnchor),
             
-            mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor),
-            mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            mainStackView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            mainStackView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+            imageContainer.topAnchor.constraint(equalTo: containerView.topAnchor),
+            imageContainer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
+            imageContainer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            imageContainer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            
+            infoView.bottomAnchor.constraint(equalTo: imageContainer.bottomAnchor),
+            infoView.centerXAnchor.constraint(equalTo: imageContainer.centerXAnchor),
             
         ])
     }

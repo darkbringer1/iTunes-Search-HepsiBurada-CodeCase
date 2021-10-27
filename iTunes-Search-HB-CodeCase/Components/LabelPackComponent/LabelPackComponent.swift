@@ -70,6 +70,7 @@ class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
         super.setupViewConfigurations()
         setupTitleConfigurations()
         setupSubtitleConfigurations()
+        setupDescriptionConfigurations()
     }
     
     override func addMajorViewComponents() {
@@ -107,6 +108,15 @@ class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
         subtitleLabel.contentMode = data.subtitleLabelDistributionData.contentMode
         subtitleLabel.textAlignment = data.subtitleLabelDistributionData.textAlignment
         subtitleLabel.font = data.subtitleLabelDistributionData.font
+    }
+    
+    private func setupDescriptionConfigurations() {
+        guard let data = returnData() else { return }
+        shortDescription.lineBreakMode = data.descriptionLabelDistributionData.lineBreakMode
+        shortDescription.numberOfLines = data.subtitleLabelDistributionData.numberOfLines
+        shortDescription.contentMode = data.subtitleLabelDistributionData.contentMode
+        shortDescription.textAlignment = data.subtitleLabelDistributionData.textAlignment
+        shortDescription.font = data.subtitleLabelDistributionData.font
     }
     
     private func setMainStackView() {

@@ -35,14 +35,22 @@ class SearchViewDataFormatter: SearchViewDataFormatterProtocol {
     }
     
     func getItem(at index: Int) -> GenericDataProtocol? {
+        
+        
+        
+        let title = list[index].collectionName ?? "no collection"
+        let subtitle = list[index].collectionPrice ?? 0.00
+        let shortDescription = list[index].shortDescription ?? "no short description"
+        
+        let labelPack = LabelPackComponentData(title: "Collection: " + title,
+                                               subtitle: "Price: " + String(subtitle),
+                                               shortDescription: shortDescription).setDescriptionLabelDistributionData(by: LabelDistributionData().setLineBreakMode(by: .byTruncatingTail).setNumberOfLines(by: 2))
+        
+        
         return SearchDisplayerItemComponentData(
             imageData: CustomImageViewComponentData(
                 imageUrl: createImageData(by: list[index].artworkUrl100!)),
-            infoView: LabelPackComponentData(
-                title: list[index].collectionName ?? "no collection",
-                subtitle: list[index].wrapperType?.rawValue ?? "no type",
-                shortDescription: list[index].shortDescription ?? "no short description")
-            )
+            infoView: labelPack)
     }
     
     private func createImageData(by value: String) -> String {
