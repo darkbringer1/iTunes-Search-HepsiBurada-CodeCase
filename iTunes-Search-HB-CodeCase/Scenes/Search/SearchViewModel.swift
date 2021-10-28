@@ -24,10 +24,11 @@ class SearchViewModel {
         detailViewState = completion
     }
     
-    func getData(with term: String?) {
+    func getData(with term: String?, entity: String) {
+        dataFormatter.clearCollectionView()
         searchViewState?(.loading)
         do {
-            guard let urlRequest = try? ItunesServiceProvider(request: getMoviesSearchRequest(with: term)).returnUrlRequest() else { return }
+            guard let urlRequest = try? ItunesServiceProvider(request: getSearchRequest(with: term, entity: entity)).returnUrlRequest() else { return }
             fireApiCall(with: urlRequest, with: dataListener)
             print("\(urlRequest)")
         }
@@ -44,9 +45,9 @@ class SearchViewModel {
         
     }
     
-    private func getMoviesSearchRequest(with term: String?) -> SearchDataRequest {
+    private func getSearchRequest(with term: String?, entity: String) -> SearchDataRequest {
         return SearchDataRequest(wrapperType: nil,
-                                 entity: Paths.music.description,
+                                 entity: entity,
                                  term: term,
                                  offset: dataFormatter.paginationData.offset,
                                  limit: dataFormatter.paginationData.limit)
@@ -73,9 +74,6 @@ class SearchViewModel {
 }
 
 extension SearchViewModel: DataProviderProtocol {
-    func askNumberOfSection() -> Int {
-        return 0
-    }
     
     func askNumberOfItem(in section: Int) -> Int {
         return dataFormatter.getNumbeOfItem(in: section)
@@ -88,10 +86,10 @@ extension SearchViewModel: DataProviderProtocol {
     func isLoadingCell(for index: Int) -> Bool {
         return index >= dataFormatter.getCount()
     }
-    func getMoreData(with term: String) {
+    func getMoreData(with term: String, entity: String) {
         guard dataFormatter.paginationData.checkLoadingMore() else { return }
         dataFormatter.paginationData.nextOffset()
-        getData(with: term)
+        getData(with: term, entity: entity)
     }
     func selectedItem(at index: Int) {
         print("index: \(index)")
@@ -106,5 +104,6 @@ enum ViewState {
     case loading
     case done
     case failure
+    case clear
     
 }

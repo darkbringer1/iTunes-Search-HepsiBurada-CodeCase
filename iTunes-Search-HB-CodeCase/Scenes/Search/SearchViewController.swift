@@ -13,6 +13,8 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     
     private var mainComponent: SearchCollectionView!
     private let searchBar = UISearchBar()
+    private var entity = Paths.movie.description
+
     
     override func prepareViewControllerConfigurations() {
         super.prepareViewControllerConfigurations()
@@ -49,6 +51,8 @@ class SearchViewController: BaseViewController<SearchViewModel> {
                     return
                 case .done:
                     self?.mainComponent.reloadCollectionView()
+                case .clear:
+                    break
                 default:
                     break
             }
@@ -109,24 +113,52 @@ class SearchViewController: BaseViewController<SearchViewModel> {
 
 extension SearchViewController: UISearchBarDelegate {
     
+    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        viewModel.getData(with: searchText)
+            searchpls()
+//            viewModel.getData(with: filteredText, entity: entity)
         mainComponent.reloadCollectionView()
-        print("\(searchText)")
     }
+    
+   
+    
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         print("begin editing")
     }
+    
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         print("end editing")
     }
+    
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         print("\(selectedScope)")
-        
+        entity = selectedScopeToPathConverter(scope: selectedScope)
+        searchpls()
     }
+
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print("cancel tapped")
         search(shouldShow: false)
+    
+    }
+    
+    private func selectedScopeToPathConverter(scope: Int) -> String {
+        var selectedScope = Paths.movie.description
+        if scope == 0 {
+            selectedScope = Paths.movie.description
+        } else if scope == 1 {
+            selectedScope = Paths.software.description
+        } else if scope == 2 {
+            selectedScope = Paths.ebook.description
+        } else if scope == 3 {
+            selectedScope = Paths.music.description
+        }
+        return selectedScope
+    }
+    
+    private func searchpls() {
+        guard let filteredText = searchBar.searchTextField.text?.replacingOccurrences(of: " ", with: "+") else { return }
+        viewModel.getData(with: filteredText, entity: entity)
     }
     
 }

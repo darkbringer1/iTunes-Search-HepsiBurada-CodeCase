@@ -22,7 +22,7 @@ class SearchDataRequest: Codable {
          limit: Int = 20) {
         self.wrapperType = wrapperType
         self.entity = entity
-        self.term = term?.replacingOccurrences(of: " ", with: "+")
+        self.term = term
         self.offset = offset
         self.limit = limit
     }

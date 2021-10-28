@@ -10,7 +10,6 @@ import BaseComponents
 
 protocol DataProviderProtocol: AnyObject {
     
-    func askNumberOfSection() -> Int
     func askNumberOfItem(in section: Int) -> Int
     func askData(at index: Int) -> GenericDataProtocol?
     func selectedItem(at index: Int)
@@ -20,8 +19,11 @@ protocol DataProviderProtocol: AnyObject {
 }
 
 extension DataProviderProtocol {
+
+    func askNumberOfSection() -> Int { return 0 }
     func selectedItem(at index: Int) { }
     func getMoreData() { }
     func isLoadingCell(for index: Int) -> Bool { return false }
+    
 }
 

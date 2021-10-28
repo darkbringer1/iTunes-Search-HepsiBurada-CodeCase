@@ -24,5 +24,6 @@ protocol SearchViewDataFormatterProtocol {
     
     func getItemId(at index: Int) -> Int
     
+    func clearCollectionView()
 }
 

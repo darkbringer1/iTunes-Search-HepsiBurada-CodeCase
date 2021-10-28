@@ -56,7 +56,11 @@ class SearchViewDataFormatter: SearchViewDataFormatterProtocol {
     }
     
     func getItemId(at index: Int) -> Int {
-        return list[index].trackId
+        guard let id = list[index].trackId else { return 0 }
+        return id
     }
     
+    func clearCollectionView() {
+        list = []
+    }
 }

@@ -72,6 +72,8 @@
 		D8536EB227296E3000D138EA /* ItemDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536EB127296E3000D138EA /* ItemDetailViewController.swift */; };
 		D8536EB427296E3800D138EA /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536EB327296E3800D138EA /* ItemDetailViewModel.swift */; };
 		D8536EB627296E4B00D138EA /* ItemDetailViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536EB527296E4B00D138EA /* ItemDetailViewBuilder.swift */; };
+		D8536EBA2729E4A300D138EA /* PriceButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536EB92729E4A300D138EA /* PriceButtonView.swift */; };
+		D8536EBC2729E4AD00D138EA /* PriceButtonViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536EBB2729E4AD00D138EA /* PriceButtonViewData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +142,8 @@
 		D8536EB127296E3000D138EA /* ItemDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewController.swift; sourceTree = "<group>"; };
 		D8536EB327296E3800D138EA /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 		D8536EB527296E4B00D138EA /* ItemDetailViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewBuilder.swift; sourceTree = "<group>"; };
+		D8536EB92729E4A300D138EA /* PriceButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceButtonView.swift; sourceTree = "<group>"; };
+		D8536EBB2729E4AD00D138EA /* PriceButtonViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceButtonViewData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,6 +215,7 @@
 		D8536E172726B6AF00D138EA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D8536EB82729E48A00D138EA /* PriceButtonComponent */,
 				D8536EA12729685F00D138EA /* ItemDetailComponent */,
 				D8536E9C2728532C00D138EA /* EmptyBackgroundComponent */,
 				D8536E792727246400D138EA /* SearchCollectionComponent */,
@@ -466,6 +471,15 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		D8536EB82729E48A00D138EA /* PriceButtonComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D8536EB92729E4A300D138EA /* PriceButtonView.swift */,
+				D8536EBB2729E4AD00D138EA /* PriceButtonViewData.swift */,
+			);
+			path = PriceButtonComponent;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -574,6 +588,7 @@
 				D8536E382726D91F00D138EA /* MoviesServiceProvider.swift in Sources */,
 				D8536E8E27273A4600D138EA /* DataProviderProtocol.swift in Sources */,
 				D8536E9E2728533E00D138EA /* EmptyBackgroundView.swift in Sources */,
+				D8536EBA2729E4A300D138EA /* PriceButtonView.swift in Sources */,
 				D8536E49272702FB00D138EA /* CustomImageViewComponent.swift in Sources */,
 				D8536E8827272BFB00D138EA /* LoadingCellView.swift in Sources */,
 				D8536E3F2726F48F00D138EA /* MusicServiceProvider.swift in Sources */,
@@ -599,6 +614,7 @@
 				D8536E932727618500D138EA /* SearchViewDataFormatterProtocol.swift in Sources */,
 				D8536E5127270C2300D138EA /* CustomImageViewComponentContainer.swift in Sources */,
 				D8536EB627296E4B00D138EA /* ItemDetailViewBuilder.swift in Sources */,
+				D8536EBC2729E4AD00D138EA /* PriceButtonViewData.swift in Sources */,
 				D8536E95272761BF00D138EA /* SearchViewDataFormatter.swift in Sources */,
 				D8536E782727137B00D138EA /* LabelPackComponent.swift in Sources */,
 				D8536DFA2725F3CE00D138EA /* AppDelegate.swift in Sources */,
