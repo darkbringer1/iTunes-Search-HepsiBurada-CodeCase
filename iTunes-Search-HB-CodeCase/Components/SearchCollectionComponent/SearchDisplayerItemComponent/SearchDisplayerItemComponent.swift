@@ -33,8 +33,7 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
     private lazy var mainStack: UIStackView = {
         let temp = UIStackView(arrangedSubviews: [imagePriceRelease, trackNameDescription])
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.isUserInteractionEnabled = true
-        temp.alignment = .center
+        temp.alignment = .top
         temp.distribution = .fillProportionally
         temp.axis = .vertical
         return temp
@@ -43,7 +42,6 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
     private lazy var priceAndRelease: UIStackView = {
         let temp = UIStackView(arrangedSubviews: [priceTag, releaseDate])
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.isUserInteractionEnabled = true
         temp.alignment = .leading
         temp.distribution = .fill
         temp.axis = .vertical
@@ -54,8 +52,7 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
     private lazy var imagePriceRelease: UIStackView = {
         let temp = UIStackView(arrangedSubviews: [imageContainer, priceAndRelease])
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.isUserInteractionEnabled = true
-        temp.alignment = .center
+        temp.alignment = .top
         temp.distribution = .fillEqually
         temp.axis = .horizontal
         temp.spacing = 5
@@ -86,7 +83,7 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
     private lazy var trackNameDescription: LabelPackComponent = {
         let info = LabelPackComponent()
         info.translatesAutoresizingMaskIntoConstraints = false
-        info.contentMode = .scaleToFill
+        info.contentMode = .left
         return info
     }()
     
@@ -113,11 +110,12 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
             containerView.trailingAnchor.constraint(equalTo: shadowContainerView.trailingAnchor),
             
             mainStack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
-            mainStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -5),
-            mainStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            mainStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            mainStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -15),
+            mainStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 5),
+            mainStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -5),
             
         ])
+        
     }
     
     override func loadDataView() {
@@ -128,5 +126,7 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
         priceTag.setData(by: data.priceTag)
         trackNameDescription.setData(by: data.trackNameDescription)
         mainStack.setCustomSpacing(5 , after: imagePriceRelease)
+        
     }
+    
 }

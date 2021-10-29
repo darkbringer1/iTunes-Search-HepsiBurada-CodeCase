@@ -107,7 +107,8 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     
     private func fireDetailView(with data: ItemDetailRequest) {
         let viewController = ItemDetailViewBuilder.build(with: data)
-        navigationController?.pushViewController(viewController, animated: true)
+//        navigationController?.pushViewController(viewController, animated: true)
+present(viewController, animated: true, completion: nil)
     }
     
 }
@@ -142,7 +143,7 @@ extension SearchViewController: UISearchBarDelegate {
         print("\(selectedScope)")
         let entity = selectedScopeToPathConverter(scope: selectedScope)
         viewModel.entity = entity
-//        viewModel.getData()
+        viewModel.getData()
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

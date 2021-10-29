@@ -52,6 +52,7 @@ class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
         titleLabel.text = data.title
         subtitleLabel.text = data.subtitle
     }
+    
     override func setupViewConfigurations() {
         super.setupViewConfigurations()
         setupTitleConfigurations()

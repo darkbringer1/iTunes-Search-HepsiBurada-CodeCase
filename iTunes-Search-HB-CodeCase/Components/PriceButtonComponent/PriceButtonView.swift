@@ -62,7 +62,7 @@ class PriceButtonView: GenericBaseView<PriceButtonViewData> {
             shadowContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             shadowContainerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            container.topAnchor.constraint(equalTo: shadowContainerView.topAnchor),
+            container.topAnchor.constraint(equalTo: shadowContainerView.topAnchor, constant: 5),
             container.bottomAnchor.constraint(equalTo: shadowContainerView.bottomAnchor),
             container.leadingAnchor.constraint(equalTo: shadowContainerView.leadingAnchor),
             container.trailingAnchor.constraint(equalTo: shadowContainerView.trailingAnchor),

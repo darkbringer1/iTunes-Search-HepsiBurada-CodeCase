@@ -12,6 +12,15 @@ import BaseComponents
 
 class CustomImageViewComponentContainer: GenericBaseView<CustomImageViewComponentData> {
     
+    private lazy var containerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+        view.backgroundColor = .lightGray
+        return view
+    }()
+    
     private lazy var shadowContainerView: UIView = {
         let shadow = UIView()
         shadow.translatesAutoresizingMaskIntoConstraints = false
@@ -39,7 +48,8 @@ class CustomImageViewComponentContainer: GenericBaseView<CustomImageViewComponen
     
     private func addCustomImageView() {
         addSubview(shadowContainerView)
-        shadowContainerView.addSubview(customImageView)
+        shadowContainerView.addSubview(containerView)
+        containerView.addSubview(customImageView)
         
         NSLayoutConstraint.activate([
             
@@ -48,10 +58,15 @@ class CustomImageViewComponentContainer: GenericBaseView<CustomImageViewComponen
             shadowContainerView.topAnchor.constraint(equalTo: topAnchor),
             shadowContainerView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
-            customImageView.leadingAnchor.constraint(equalTo: shadowContainerView.leadingAnchor),
-            customImageView.trailingAnchor.constraint(equalTo: shadowContainerView.trailingAnchor),
-            customImageView.topAnchor.constraint(equalTo: shadowContainerView.topAnchor),
-            customImageView.bottomAnchor.constraint(equalTo: shadowContainerView.bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: shadowContainerView.leadingAnchor, constant: 5),
+            containerView.trailingAnchor.constraint(equalTo: shadowContainerView.trailingAnchor, constant: -5),
+            containerView.topAnchor.constraint(equalTo: shadowContainerView.topAnchor, constant: 5),
+            containerView.bottomAnchor.constraint(equalTo: shadowContainerView.bottomAnchor, constant: -5),
+            
+            customImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            customImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
+            customImageView.topAnchor.constraint(equalTo: containerView.topAnchor),
+            customImageView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
             
         ])
         
