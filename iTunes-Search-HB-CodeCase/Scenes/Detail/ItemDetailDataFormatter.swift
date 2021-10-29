@@ -12,8 +12,7 @@ class ItemDetailDataFormatter: ItemDetailDataFormatterProcol {
     func convertItemDetailView(from rawData: SearchResult) -> ItemDetailViewData {
         let title = rawData.collectionName ?? ""
         let subtitle = rawData.collectionPrice ?? 0.00
-        let description = rawData.shortDescription ?? ""
-        let labelPack = LabelPackComponentData(title: title, subtitle: String(subtitle), shortDescription: description)
+        let labelPack = LabelPackComponentData(title: title, subtitle: String(subtitle))
             .setTitleLabelDistributionData(by: LabelDistributionData()
                                             .setContentMode(by: .left)
                                             .setTextAlignment(by: .left)
@@ -25,11 +24,7 @@ class ItemDetailDataFormatter: ItemDetailDataFormatterProcol {
                                                 .setTextAlignment(by: .left)
                                                 .setLineBreakMode(by: .byWordWrapping)
                                                 .setFont(by: RobotoHelper.italic(14).value))
-            .setDescriptionLabelDistributionData(by: LabelDistributionData()
-                                                    .setContentMode(by: .left)
-                                                    .setTextAlignment(by: .left)
-                                                    .setLineBreakMode(by: .byWordWrapping)
-                                                    .setFont(by: RobotoHelper.light(14).value))
+            
         return ItemDetailViewData(
             imageData: createImageData(with: rawData.artworkUrl100!),
             labelPackData: labelPack)

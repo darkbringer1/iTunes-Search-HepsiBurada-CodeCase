@@ -11,7 +11,6 @@ class CustomImageViewComponentData {
     
     private(set) var imageUrl: String
     private(set) var contentMode: UIView.ContentMode = .scaleAspectFill
-    private(set) var loadingType: CustomImageLoadingType = .memory
     private(set) var imageId: String?
 
     init(imageUrl: String) {
@@ -23,21 +22,9 @@ class CustomImageViewComponentData {
         return self
     }
     
-    func setLoadingType(by value: CustomImageLoadingType) -> Self {
-        self.loadingType = value
-        return self
-    }
-    
     func setImageId(by value: String) -> Self {
         self.imageId = value
         return self
     }
     
-}
-
-//MARK: - LEGACY CODE FROM PREVIOUS PROJECTS
-
-enum CustomImageLoadingType {
-    case memory
-    case disk
 }

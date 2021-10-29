@@ -36,19 +36,32 @@ class SearchViewDataFormatter: SearchViewDataFormatterProtocol {
     
     func getItem(at index: Int) -> GenericDataProtocol? {
         
-        let title = list[index].collectionName ?? "no collection"
-        let subtitle = list[index].trackId ?? Int(0.00)
-        let shortDescription = list[index].shortDescription ?? "no short description"
+        let image = createImageData(by: list[index].artworkUrl100!)
+        let trackName = list[index].trackName
+        let collectionName = list[index].collectionName ?? list[index].trackCensoredName
+        let releaseDate = list[index].releaseDate ?? "no release date"
+        let price = list[index].price
+        let trackPrice = list[index].trackPrice
+        let guaranteedPrice = price ?? trackPrice
         
-        let labelPack = LabelPackComponentData(title: "Collection: " + title,
-                                               subtitle: "Price: " + String(subtitle),
-                                               shortDescription: shortDescription).setDescriptionLabelDistributionData(by: LabelDistributionData().setLineBreakMode(by: .byTruncatingTail).setNumberOfLines(by: 2))
         
         
         return SearchDisplayerItemComponentData(
-            imageData: CustomImageViewComponentData(
-                imageUrl: createImageData(by: list[index].artworkUrl100!)),
-            infoView: labelPack)
+            imageData: CustomImageViewComponentData(imageUrl: image),
+            trackNameDescription: LabelPackComponentData(
+                title: trackName,
+                subtitle: collectionName!)
+                .setTitleLabelDistributionData(by: LabelDistributionData()
+                                                .setTextAlignment(by: .left)
+                                                .setNumberOfLines(by: 2)
+                                                .setLineBreakMode(by: .byTruncatingTail)
+                                                .setContentMode(by: .left)),
+            releaseDate: LabelPackComponentData(
+                title: "Release Date:",
+                subtitle: releaseDate)
+                .setTitleLabelDistributionData(by: LabelDistributionData()
+                                                .setFont(by: RobotoHelper.bold(5).value)),
+            priceTag: PriceButtonViewData(price: "$ " + String(guaranteedPrice ?? 0.00)))
     }
     
     private func createImageData(by value: String) -> String {
@@ -56,11 +69,12 @@ class SearchViewDataFormatter: SearchViewDataFormatterProtocol {
     }
     
     func getItemId(at index: Int) -> Int {
-        guard let id = list[index].trackId else { return 0 }
-        return id
+        return list[index].trackId!
+         
     }
     
     func clearCollectionView() {
         list = []
     }
+    
 }

@@ -13,8 +13,6 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     
     private var mainComponent: SearchCollectionView!
     private let searchBar = UISearchBar()
-    private var entity = Paths.movie.description
-
     
     override func prepareViewControllerConfigurations() {
         super.prepareViewControllerConfigurations()
@@ -41,7 +39,6 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         ])
     }
 
-
     //MARK: - PRIVATE METHODS
 
     private func addViewModelListeners() {
@@ -51,8 +48,6 @@ class SearchViewController: BaseViewController<SearchViewModel> {
                     return
                 case .done:
                     self?.mainComponent.reloadCollectionView()
-                case .clear:
-                    break
                 default:
                     break
             }
@@ -67,45 +62,51 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         navigationItem.title = "iTunes Search"
         navigationController?.navigationBar.prefersLargeTitles = false
         searchBar.delegate = self
-        
         searchBar.scopeButtonTitles = ["Movies", "Apps", "Books", "Music"]
         searchBar.showsScopeBar = true
         showSearchBarButton(shouldShow: true)
+        searchBar.tintColor = .black
     }
     
     //button function from the magnifying glass icon in navigationBar right item
     private func showSearchBarButton(shouldShow: Bool) {
-        if shouldShow {
-            navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
-                                                                target: self,
-                                                                action: #selector(handleShowSearchBar))
-            
-        } else {
-            navigationItem.titleView = nil
+        UIView.animate(withDuration: 0.3) { [self] in
+            if shouldShow {
+                navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
+                                                                    target: self,
+                                                                    action: #selector(handleShowSearchBar))
+                
+            } else {
+                navigationItem.titleView = nil
+            }
         }
-    }
-    @objc private func handleShowSearchBar() {
-        search(shouldShow: true)
-        navigationItem.rightBarButtonItem = nil
-        searchBar.becomeFirstResponder()
+        
     }
     
+    @objc private func handleShowSearchBar() {
+        UIView.animate(withDuration: 0.3) { [self] in
+            search(shouldShow: true)
+            navigationItem.rightBarButtonItem = nil
+            searchBar.becomeFirstResponder()
+        }
+    }
     
     //when we push the search icon we should show the search bar and when we hit the cancel button we need to hide search bar.
     //calling this func in Delegate cancel func and addSearchBar func
     private func search(shouldShow: Bool) {
-        
-        //when we hit the cancel button, search func will be false and will hide the magnifying glass button
-        showSearchBarButton(shouldShow: !shouldShow)
-        searchBar.showsCancelButton = shouldShow
-        
-        //if its false we need searchbar to show the title, if its true we need to show search bar
-        navigationItem.titleView = shouldShow ? searchBar : nil
+        UIView.animate(withDuration: 0.3) { [self] in
+            //when we hit the cancel button, search func will be false and will hide the magnifying glass button
+            showSearchBarButton(shouldShow: !shouldShow)
+            searchBar.showsCancelButton = shouldShow
+            
+            //if its false we need searchbar to show the title, if its true we need to show search bar
+            navigationItem.titleView = shouldShow ? searchBar : nil
+        }
+
     }
     
     private func fireDetailView(with data: ItemDetailRequest) {
         let viewController = ItemDetailViewBuilder.build(with: data)
-        
         navigationController?.pushViewController(viewController, animated: true)
     }
     
@@ -115,9 +116,16 @@ extension SearchViewController: UISearchBarDelegate {
     
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-            searchpls()
-//            viewModel.getData(with: filteredText, entity: entity)
-        mainComponent.reloadCollectionView()
+//            searchpls(with: searchText)
+        let text = searchText.replacingOccurrences(of: " ", with: "+")
+        
+        viewModel.term = text
+        
+        if text.count > 2 {
+            viewModel.getData()
+            mainComponent.reloadCollectionView()
+        } else { return }
+        
     }
     
    
@@ -132,33 +140,33 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         print("\(selectedScope)")
-        entity = selectedScopeToPathConverter(scope: selectedScope)
-        searchpls()
+        let entity = selectedScopeToPathConverter(scope: selectedScope)
+        viewModel.entity = entity
+//        viewModel.getData()
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print("cancel tapped")
         search(shouldShow: false)
-    
     }
     
     private func selectedScopeToPathConverter(scope: Int) -> String {
-        var selectedScope = Paths.movie.description
-        if scope == 0 {
-            selectedScope = Paths.movie.description
-        } else if scope == 1 {
-            selectedScope = Paths.software.description
-        } else if scope == 2 {
-            selectedScope = Paths.ebook.description
-        } else if scope == 3 {
-            selectedScope = Paths.music.description
+        switch scope {
+            case 0:
+                return Paths.movie.description
+            case 1:
+                return Paths.software.description
+            case 2:
+                return Paths.ebook.description
+            case 3:
+                return Paths.music.description
+            default:
+                return Paths.movie.description
         }
-        return selectedScope
     }
     
-    private func searchpls() {
-        guard let filteredText = searchBar.searchTextField.text?.replacingOccurrences(of: " ", with: "+") else { return }
-        viewModel.getData(with: filteredText, entity: entity)
-    }
+//    private func searchpls(with searchText: String) {
+//        if searchText.count > 2 { viewModel.getData() }
+//    }
     
 }

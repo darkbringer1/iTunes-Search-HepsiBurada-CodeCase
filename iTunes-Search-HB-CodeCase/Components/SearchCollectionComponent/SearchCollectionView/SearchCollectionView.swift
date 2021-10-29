@@ -42,6 +42,7 @@ class SearchCollectionView: GenericBaseView<SearchCollectionViewData> {
     
     private func addCollectionView() {
         addSubview(componentCollection)
+        componentCollection.backgroundColor = .white
         
         NSLayoutConstraint.activate([
         
@@ -75,9 +76,8 @@ class SearchCollectionView: GenericBaseView<SearchCollectionViewData> {
         emptyView = EmptyBackgroundView(frame: .zero,
                                         data: EmptyBackgroundViewData(
                                             labelPackData: LabelPackComponentData(
-                                                title: "Warning",
-                                                subtitle: "Please search anything you want on the search bar",
-                                                shortDescription: "You can access the search bar by tapping on the top right corner.")))
+                                                title: "Please search anything you \nwant on the search bar",
+                                                subtitle: "You can access the search bar by tapping on the top right corner.").setTitleLabelDistributionData(by: LabelDistributionData().setLineBreakMode(by: .byWordWrapping).setNumberOfLines(by: 2))))
         
         componentCollection.backgroundView = emptyView
     }
@@ -121,6 +121,7 @@ extension SearchCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
             }
         })
     }
+    
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout
@@ -128,9 +129,8 @@ extension SearchCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = (UIScreen.main.bounds.width - 50) / 2
-        let height = (UIScreen.main.bounds.height - 50) / 3
-        return CGSize(width: width, height: height)
+        let width = (UIScreen.main.bounds.width - 40) / 2
+        return CGSize(width: width, height: width + (width / 2))
         
     }
     

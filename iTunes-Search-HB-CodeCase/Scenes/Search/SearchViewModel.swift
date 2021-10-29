@@ -13,22 +13,27 @@ class SearchViewModel {
     private var searchViewState: ((ViewState) -> Void)?
     private var dataFormatter: SearchViewDataFormatterProtocol
     private var detailViewState: ((ItemDetailRequest) -> Void)?
-
+    var term: String = ""
+    var entity: String = Paths.music.description
+    
     init(dataFormatter: SearchViewDataFormatterProtocol) {
         self.dataFormatter = dataFormatter
     }
     
     //MARK: - ACCESSABLE METHODS FROM VC
     
+    
     func subscribeDetailViewState(with completion: @escaping (ItemDetailRequest) -> Void) {
         detailViewState = completion
     }
-    
-    func getData(with term: String?, entity: String) {
-        dataFormatter.clearCollectionView()
+        
+    func getData() {
+        if dataFormatter.paginationData.offset == 0 {
+            dataFormatter.clearCollectionView()
+        }
         searchViewState?(.loading)
         do {
-            guard let urlRequest = try? ItunesServiceProvider(request: getSearchRequest(with: term, entity: entity)).returnUrlRequest() else { return }
+            guard let urlRequest = try? ItunesServiceProvider(request: getSearchRequest(term: term, entity: entity)).returnUrlRequest() else { return }
             fireApiCall(with: urlRequest, with: dataListener)
             print("\(urlRequest)")
         }
@@ -42,10 +47,9 @@ class SearchViewModel {
     
     private func fireApiCall(with request: URLRequest, with completion: @escaping (Result<SearchResponseModel, ErrorResponse>) -> Void) {
         APIManager.shared.executeRequest(urlRequest: request, completion: completion)
-        
     }
-    
-    private func getSearchRequest(with term: String?, entity: String) -> SearchDataRequest {
+
+    private func getSearchRequest(term: String?, entity: String) -> SearchDataRequest {
         return SearchDataRequest(wrapperType: nil,
                                  entity: entity,
                                  term: term,
@@ -68,7 +72,6 @@ class SearchViewModel {
             case .success(let response):
                 self?.apiCallHandler(from: response)
         }
-    
     }
     
 }
@@ -86,11 +89,13 @@ extension SearchViewModel: DataProviderProtocol {
     func isLoadingCell(for index: Int) -> Bool {
         return index >= dataFormatter.getCount()
     }
-    func getMoreData(with term: String, entity: String) {
+    
+    func getMoreData() {
         guard dataFormatter.paginationData.checkLoadingMore() else { return }
         dataFormatter.paginationData.nextOffset()
-        getData(with: term, entity: entity)
+        getData()
     }
+    
     func selectedItem(at index: Int) {
         print("index: \(index)")
         //detail view will show according to below methods(to be added
@@ -104,6 +109,5 @@ enum ViewState {
     case loading
     case done
     case failure
-    case clear
     
 }

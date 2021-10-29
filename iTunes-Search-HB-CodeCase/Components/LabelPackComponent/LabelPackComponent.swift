@@ -11,12 +11,12 @@ import BaseComponents
 class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
     
     private lazy var mainStackView: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel, shortDescription])
+        let stack = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.alignment = .center
-        stack.distribution = .fill
+        stack.alignment = .leading
+        stack.distribution = .fillEqually
         stack.axis = .vertical
-        stack.spacing = 10
+        stack.spacing = 2
         return stack
     }()
     
@@ -26,10 +26,10 @@ class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
         title.textColor = .black
         title.text = " "
         title.lineBreakMode = .byWordWrapping
-        title.numberOfLines = 0
-        title.contentMode = .center
-        title.textAlignment = .center
-        title.font = RobotoHelper.regular(16).value
+        title.numberOfLines = 2
+        title.contentMode = .left
+        title.textAlignment = .left
+        title.font = RobotoHelper.bold(14).value
         return title
     }()
     
@@ -38,25 +38,12 @@ class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
         subtitle.translatesAutoresizingMaskIntoConstraints = false
         subtitle.textColor = .black
         subtitle.text = " "
-        subtitle.lineBreakMode = .byWordWrapping
-        subtitle.numberOfLines = 0
-        subtitle.contentMode = .center
-        subtitle.textAlignment = .center
-        subtitle.font = RobotoHelper.regular(16).value
+        subtitle.lineBreakMode = .byTruncatingTail
+        subtitle.numberOfLines = 2
+        subtitle.contentMode = .left
+        subtitle.textAlignment = .left
+        subtitle.font = RobotoHelper.regular(14).value
         return subtitle
-    }()
-    
-    private lazy var shortDescription: UILabel = {
-        let desc = UILabel()
-        desc.translatesAutoresizingMaskIntoConstraints = false
-        desc.textColor = .black
-        desc.text = " "
-        desc.lineBreakMode = .byWordWrapping
-        desc.numberOfLines = 0
-        desc.contentMode = .center
-        desc.textAlignment = .center
-        desc.font = RobotoHelper.regular(16).value
-        return desc
     }()
     
     override func loadDataView() {
@@ -64,13 +51,12 @@ class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
         guard let data = returnData() else { return }
         titleLabel.text = data.title
         subtitleLabel.text = data.subtitle
-        shortDescription.text = data.shortDescription
     }
     override func setupViewConfigurations() {
         super.setupViewConfigurations()
         setupTitleConfigurations()
         setupSubtitleConfigurations()
-        setupDescriptionConfigurations()
+        setMainStackView()
     }
     
     override func addMajorViewComponents() {
@@ -83,10 +69,10 @@ class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
         
         NSLayoutConstraint.activate([
             
-            mainStackView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            mainStackView.topAnchor.constraint(equalTo: topAnchor),
+            mainStackView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            mainStackView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            mainStackView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
         ])
         
@@ -110,21 +96,10 @@ class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
         subtitleLabel.font = data.subtitleLabelDistributionData.font
     }
     
-    private func setupDescriptionConfigurations() {
-        guard let data = returnData() else { return }
-        shortDescription.lineBreakMode = data.descriptionLabelDistributionData.lineBreakMode
-        shortDescription.numberOfLines = data.subtitleLabelDistributionData.numberOfLines
-        shortDescription.contentMode = data.subtitleLabelDistributionData.contentMode
-        shortDescription.textAlignment = data.subtitleLabelDistributionData.textAlignment
-        shortDescription.font = data.subtitleLabelDistributionData.font
-    }
-    
     private func setMainStackView() {
         guard let data = returnData() else { return }
         mainStackView.spacing = data.spacing
         mainStackView.alignment = data.stackViewAlignment
     }
-    
-    
     
 }

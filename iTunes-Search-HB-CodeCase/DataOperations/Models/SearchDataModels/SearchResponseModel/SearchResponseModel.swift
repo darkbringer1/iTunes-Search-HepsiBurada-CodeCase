@@ -21,10 +21,12 @@ class SearchResponseModel: Codable {
 
 // MARK: - SearchResult
 class SearchResult: Codable {
+    let price: Double?
+    let trackCensoredName: String?
     let trackName: String
     let trackPrice: Double?
     let formattedPrice: String?
-    let trackId: Int
+    let trackId: Int?
     let artworkUrl100: String?
     let collectionPrice: Double?
     let collectionName: String?
@@ -33,6 +35,8 @@ class SearchResult: Codable {
     let longDescription: String?
     
     enum CodingKeys: String, CodingKey {
+        case price
+        case trackCensoredName
         case formattedPrice
         case trackPrice
         case trackName
@@ -45,7 +49,9 @@ class SearchResult: Codable {
         case longDescription
     }
 
-    init(trackId: Int,
+    init(trackId: Int?,
+         price: Double?,
+         trackCensoredName: String?,
          formattedPrice: String?,
          trackPrice: Double?,
          trackName: String,
@@ -55,6 +61,8 @@ class SearchResult: Codable {
          releaseDate: String?,
          shortDescription: String?,
          longDescription: String?) {
+        self.trackCensoredName = trackCensoredName
+        self.price = price
         self.trackId = trackId
         self.formattedPrice = formattedPrice
         self.trackPrice = trackPrice

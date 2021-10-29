@@ -24,42 +24,69 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
     private lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 6
+        view.layer.cornerRadius = 10
         view.clipsToBounds = true
         view.backgroundColor = .white
         return view
     }()
     
-//    private lazy var mainStackView: UIStackView = {
-//        let temp = UIStackView(arrangedSubviews: [imageContainer, infoView])
-//        temp.translatesAutoresizingMaskIntoConstraints = false
-//        temp.isUserInteractionEnabled = true
-//        temp.alignment = .center
-//        temp.distribution = .fill
-//        temp.axis = .vertical
-//        temp.spacing = 5
-//        return temp
-//    }()
+    private lazy var mainStack: UIStackView = {
+        let temp = UIStackView(arrangedSubviews: [imagePriceRelease, trackNameDescription])
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.isUserInteractionEnabled = true
+        temp.alignment = .center
+        temp.distribution = .fillProportionally
+        temp.axis = .vertical
+        return temp
+    }()
+    
+    private lazy var priceAndRelease: UIStackView = {
+        let temp = UIStackView(arrangedSubviews: [priceTag, releaseDate])
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.isUserInteractionEnabled = true
+        temp.alignment = .leading
+        temp.distribution = .fill
+        temp.axis = .vertical
+        temp.spacing = 5
+        return temp
+    }()
+    
+    private lazy var imagePriceRelease: UIStackView = {
+        let temp = UIStackView(arrangedSubviews: [imageContainer, priceAndRelease])
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.isUserInteractionEnabled = true
+        temp.alignment = .center
+        temp.distribution = .fillEqually
+        temp.axis = .horizontal
+        temp.spacing = 5
+        return temp
+    }()
+    
+    private lazy var priceTag: PriceButtonView = {
+        let price = PriceButtonView()
+        price.translatesAutoresizingMaskIntoConstraints = false
+        price.contentMode = .center
+        return price
+    }()
     
     private lazy var imageContainer: CustomImageViewComponentContainer = {
         let temp = CustomImageViewComponentContainer()
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.layer.cornerRadius = 2
+        temp.layer.cornerRadius = 10
         temp.clipsToBounds = true
         return temp
     }()
     
-    private lazy var gradient: CAGradientLayer = {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor.clear.cgColor,    UIColor.black.cgColor]
-//        gradientLayer.opacity = 0.7
-        return gradientLayer
+    private lazy var releaseDate: LabelPackComponent = {
+        let release = LabelPackComponent()
+        release.translatesAutoresizingMaskIntoConstraints = false
+        return release
     }()
     
-    private lazy var infoView: LabelPackComponent = {
+    private lazy var trackNameDescription: LabelPackComponent = {
         let info = LabelPackComponent()
         info.translatesAutoresizingMaskIntoConstraints = false
-        info.contentMode = .top
+        info.contentMode = .scaleToFill
         return info
     }()
     
@@ -71,9 +98,7 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
     private func addComponents() {
         addSubview(shadowContainerView)
         shadowContainerView.addSubview(containerView)
-        containerView.addSubview(imageContainer)
-        imageContainer.layer.addSublayer(gradient)
-        imageContainer.addSubview(infoView)
+        containerView.addSubview(mainStack)
         
         NSLayoutConstraint.activate([
             
@@ -87,13 +112,10 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
             containerView.leadingAnchor.constraint(equalTo: shadowContainerView.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: shadowContainerView.trailingAnchor),
             
-            imageContainer.topAnchor.constraint(equalTo: containerView.topAnchor),
-            imageContainer.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
-            imageContainer.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
-            imageContainer.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
-            
-            infoView.bottomAnchor.constraint(equalTo: imageContainer.bottomAnchor),
-            infoView.centerXAnchor.constraint(equalTo: imageContainer.centerXAnchor),
+            mainStack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
+            mainStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -5),
+            mainStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+            mainStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),
             
         ])
     }
@@ -102,6 +124,9 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
         super.loadDataView()
         guard let data = returnData() as? SearchDisplayerItemComponentData else { return }
         imageContainer.setData(by: data.imageData)
-        infoView.setData(by: data.infoView)
+        releaseDate.setData(by: data.releaseDate)
+        priceTag.setData(by: data.priceTag)
+        trackNameDescription.setData(by: data.trackNameDescription)
+        mainStack.setCustomSpacing(5 , after: imagePriceRelease)
     }
 }

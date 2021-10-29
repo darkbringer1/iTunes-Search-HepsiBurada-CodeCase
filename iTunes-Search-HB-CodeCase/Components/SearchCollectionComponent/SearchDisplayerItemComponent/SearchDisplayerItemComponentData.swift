@@ -13,11 +13,19 @@ class SearchDisplayerItemComponentData: GenericDataProtocol {
     var type: GenericRowType? = nil
     
     private(set) var imageData: CustomImageViewComponentData
-    private(set) var infoView: LabelPackComponentData
+    private(set) var trackNameDescription: LabelPackComponentData
+    private(set) var releaseDate: LabelPackComponentData
+    private(set) var priceTag: PriceButtonViewData
     
     init(imageData: CustomImageViewComponentData,
-         infoView: LabelPackComponentData) {
+         trackNameDescription: LabelPackComponentData,
+         releaseDate: LabelPackComponentData,
+         priceTag: PriceButtonViewData) {
+        
         self.imageData = imageData
-        self.infoView = infoView
+        self.trackNameDescription = trackNameDescription
+        self.releaseDate = releaseDate
+        self.priceTag = priceTag
     }
+    
 }

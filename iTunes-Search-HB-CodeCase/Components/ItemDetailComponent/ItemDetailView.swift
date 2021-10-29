@@ -10,6 +10,17 @@ import BaseComponents
 
 class ItemDetailView: GenericBaseView<ItemDetailViewData> {
     
+    private lazy var shadowContainerView: UIView = {
+        let shadow = UIView()
+        shadow.translatesAutoresizingMaskIntoConstraints = false
+        shadow.layer.shadowColor = UIColor.black.cgColor
+        shadow.layer.shadowOffset = CGSize(width: 0, height: 2)
+        shadow.layer.shadowRadius = 4
+        shadow.layer.shadowOpacity = 0.4
+        shadow.layer.cornerRadius = 6
+        return shadow
+    }()
+    
     private lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -33,7 +44,6 @@ class ItemDetailView: GenericBaseView<ItemDetailViewData> {
     private lazy var imageContainer: CustomImageViewComponentContainer = {
         let temp = CustomImageViewComponentContainer()
         temp.translatesAutoresizingMaskIntoConstraints = false
-//        temp.layer.cornerRadius = 2
         temp.clipsToBounds = true
         temp.heightAnchor.constraint(equalToConstant: getSize()).isActive = true
         temp.widthAnchor.constraint(equalToConstant: getSize()).isActive = true
@@ -52,15 +62,20 @@ class ItemDetailView: GenericBaseView<ItemDetailViewData> {
     }
     
     private func addComponents() {
-        addSubview(containerView)
+        addSubview(shadowContainerView)
+        shadowContainerView.addSubview(containerView)
         containerView.addSubview(mainStackView)
         
         NSLayoutConstraint.activate([
+            shadowContainerView.topAnchor.constraint(equalTo: topAnchor, constant: 100),
+            shadowContainerView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            shadowContainerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            shadowContainerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
             
-            containerView.topAnchor.constraint(equalTo: topAnchor, constant: 100),
-            containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
-            containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            containerView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            containerView.topAnchor.constraint(equalTo: shadowContainerView.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: shadowContainerView.bottomAnchor),
+            containerView.leadingAnchor.constraint(equalTo: shadowContainerView.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: shadowContainerView.trailingAnchor),
             
             mainStackView.topAnchor.constraint(equalTo: containerView.topAnchor),
             mainStackView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor),
