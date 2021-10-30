@@ -74,7 +74,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
             if shouldShow {
                 navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
                                                                     target: self,
-                                                                    action: #selector(handleShowSearchBar))
+                                                                    action: .searchBarHandler)
                 
             } else {
                 navigationItem.titleView = nil
@@ -82,7 +82,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         }
     }
     
-    @objc private func handleShowSearchBar() {
+    @objc func handleShowSearchBar() {
             search(shouldShow: true)
             navigationItem.rightBarButtonItem = nil
             searchBar.becomeFirstResponder()
@@ -112,7 +112,6 @@ class SearchViewController: BaseViewController<SearchViewModel> {
 
 extension SearchViewController: UISearchBarDelegate {
     
-    
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //            searchpls(with: searchText)
         let text = searchText.replacingOccurrences(of: " ", with: "+")
@@ -137,33 +136,14 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         print("\(selectedScope)")
         viewModel.clearOffset()
-        let entity = selectedScopeToPathConverter(scope: selectedScope)
+        let entity = viewModel.selectedScopeToPathConverter(scope: selectedScope)
         viewModel.entity = entity
-//        viewModel.getData()
+        viewModel.getData()
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         print("cancel tapped")
         search(shouldShow: false)
     }
-    
-    private func selectedScopeToPathConverter(scope: Int) -> String {
-        switch scope {
-            case 0:
-                return Paths.movie.description
-            case 1:
-                return Paths.software.description
-            case 2:
-                return Paths.ebook.description
-            case 3:
-                return Paths.music.description
-            default:
-                return Paths.movie.description
-        }
-    }
-    
-//    private func searchpls(with searchText: String) {
-//        if searchText.count > 2 { viewModel.getData() }
-//    }
     
 }

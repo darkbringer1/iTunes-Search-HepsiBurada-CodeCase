@@ -47,6 +47,24 @@ class SearchViewModel {
         searchViewState = completion
     }
     
+    //MARK: - SCOPE CHANGE HANDLER METHOD
+
+    func selectedScopeToPathConverter(scope: Int) -> String {
+        switch scope {
+            case 0:
+                return Paths.movie.description
+            case 1:
+                return Paths.software.description
+            case 2:
+                return Paths.ebook.description
+            case 3:
+                return Paths.music.description
+            default:
+                return Paths.movie.description
+        }
+    }
+    
+    
     //MARK: - PRIVATE METHODS
     
     private func fireApiCall(with request: URLRequest, with completion: @escaping (Result<SearchResponseModel, ErrorResponse>) -> Void) {

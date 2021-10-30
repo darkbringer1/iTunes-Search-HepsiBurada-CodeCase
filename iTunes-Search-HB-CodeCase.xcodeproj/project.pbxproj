@@ -73,6 +73,9 @@
 		D8536EB427296E3800D138EA /* ItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536EB327296E3800D138EA /* ItemDetailViewModel.swift */; };
 		D8536EB627296E4B00D138EA /* ItemDetailViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536EB527296E4B00D138EA /* ItemDetailViewBuilder.swift */; };
 		D8EECB92272D818100C201DB /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECB91272D818100C201DB /* String+Extension.swift */; };
+		D8EECB95272D9DED00C201DB /* Selector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECB94272D9DED00C201DB /* Selector+Extension.swift */; };
+		D8EECB98272DA5B500C201DB /* DetailTableViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECB97272DA5B500C201DB /* DetailTableViewComponent.swift */; };
+		D8EECB9A272DA5BE00C201DB /* DetailTableViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECB99272DA5BE00C201DB /* DetailTableViewData.swift */; };
 		D8F80500272B14760017034C /* PriceButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F804FE272B14760017034C /* PriceButtonView.swift */; };
 		D8F80501272B14760017034C /* PriceButtonViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F804FF272B14760017034C /* PriceButtonViewData.swift */; };
 		D8F80504272B1C650017034C /* AdditionalInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F80503272B1C650017034C /* AdditionalInfoComponent.swift */; };
@@ -146,6 +149,9 @@
 		D8536EB327296E3800D138EA /* ItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewModel.swift; sourceTree = "<group>"; };
 		D8536EB527296E4B00D138EA /* ItemDetailViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailViewBuilder.swift; sourceTree = "<group>"; };
 		D8EECB91272D818100C201DB /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		D8EECB94272D9DED00C201DB /* Selector+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Selector+Extension.swift"; sourceTree = "<group>"; };
+		D8EECB97272DA5B500C201DB /* DetailTableViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewComponent.swift; sourceTree = "<group>"; };
+		D8EECB99272DA5BE00C201DB /* DetailTableViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewData.swift; sourceTree = "<group>"; };
 		D8F804FE272B14760017034C /* PriceButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceButtonView.swift; sourceTree = "<group>"; };
 		D8F804FF272B14760017034C /* PriceButtonViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceButtonViewData.swift; sourceTree = "<group>"; };
 		D8F80503272B1C650017034C /* AdditionalInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoComponent.swift; sourceTree = "<group>"; };
@@ -221,6 +227,7 @@
 		D8536E172726B6AF00D138EA /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				D8EECB96272DA57100C201DB /* DetailTableViewComponent */,
 				D8F80502272B1C480017034C /* AdditionalInfoComponent */,
 				D8F804FD272B14760017034C /* PriceButtonComponent */,
 				D8536EA12729685F00D138EA /* ItemDetailComponent */,
@@ -304,6 +311,7 @@
 		D8536E46272701AA00D138EA /* DataOperations */ = {
 			isa = PBXGroup;
 			children = (
+				D8536E8C27273A2200D138EA /* DataProviderProtocol */,
 				D8536E182726B79B00D138EA /* Models */,
 			);
 			path = DataOperations;
@@ -377,7 +385,6 @@
 		D8536E792727246400D138EA /* SearchCollectionComponent */ = {
 			isa = PBXGroup;
 			children = (
-				D8536E8C27273A2200D138EA /* DataProviderProtocol */,
 				D8536E8627272BE100D138EA /* LoadingCellComponent */,
 				D8536E81272729E700D138EA /* SearchDisplayerItemComponent */,
 				D8536E7A2727249900D138EA /* SearchCollectionView */,
@@ -416,6 +423,7 @@
 			isa = PBXGroup;
 			children = (
 				D8536E8A272739A900D138EA /* UICollectionView+Extension.swift */,
+				D8EECB94272D9DED00C201DB /* Selector+Extension.swift */,
 				D8EECB91272D818100C201DB /* String+Extension.swift */,
 				D8536E8F27273B4400D138EA /* UIView+Extensions.swift */,
 			);
@@ -477,6 +485,15 @@
 				D8536EB527296E4B00D138EA /* ItemDetailViewBuilder.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		D8EECB96272DA57100C201DB /* DetailTableViewComponent */ = {
+			isa = PBXGroup;
+			children = (
+				D8EECB97272DA5B500C201DB /* DetailTableViewComponent.swift */,
+				D8EECB99272DA5BE00C201DB /* DetailTableViewData.swift */,
+			);
+			path = DetailTableViewComponent;
 			sourceTree = "<group>";
 		};
 		D8F804FD272B14760017034C /* PriceButtonComponent */ = {
@@ -611,6 +628,7 @@
 				D8536E3F2726F48F00D138EA /* MusicServiceProvider.swift in Sources */,
 				D8536E2B2726CB6000D138EA /* SearchSoftwareRequest.swift in Sources */,
 				D8EECB92272D818100C201DB /* String+Extension.swift in Sources */,
+				D8EECB98272DA5B500C201DB /* DetailTableViewComponent.swift in Sources */,
 				D8536EA32729687000D138EA /* ItemDetailView.swift in Sources */,
 				D8536E292726CB4800D138EA /* SearchBookRequest.swift in Sources */,
 				D8536E8527272A0300D138EA /* SearchDisplayerItemComponentData.swift in Sources */,
@@ -621,6 +639,7 @@
 				D8536E9A27281CFA00D138EA /* ItunesServiceProvider.swift in Sources */,
 				D8536E202726BD9600D138EA /* SearchMovieRequest.swift in Sources */,
 				D8F80501272B14760017034C /* PriceButtonViewData.swift in Sources */,
+				D8EECB95272D9DED00C201DB /* Selector+Extension.swift in Sources */,
 				D8536E7C272724C200D138EA /* SearchCollectionView.swift in Sources */,
 				D8536E4E272704C400D138EA /* ImageCacheManager.swift in Sources */,
 				D8536EA62729687E00D138EA /* ItemDetailViewData.swift in Sources */,
@@ -637,6 +656,7 @@
 				D8536EB627296E4B00D138EA /* ItemDetailViewBuilder.swift in Sources */,
 				D8536E95272761BF00D138EA /* SearchViewDataFormatter.swift in Sources */,
 				D8536E782727137B00D138EA /* LabelPackComponent.swift in Sources */,
+				D8EECB9A272DA5BE00C201DB /* DetailTableViewData.swift in Sources */,
 				D8536DFA2725F3CE00D138EA /* AppDelegate.swift in Sources */,
 				D8536EAE27296B6B00D138EA /* ItemDetailDataFormatterProtocol.swift in Sources */,
 				D8536E3B2726F37E00D138EA /* BooksServiceProvider.swift in Sources */,
