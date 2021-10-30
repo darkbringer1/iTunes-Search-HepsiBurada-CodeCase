@@ -136,10 +136,10 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
         print("\(selectedScope)")
+        viewModel.clearOffset()
         let entity = selectedScopeToPathConverter(scope: selectedScope)
         viewModel.entity = entity
 //        viewModel.getData()
-        viewModel.clearOffset()
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

@@ -49,8 +49,10 @@ class SearchResult: Codable {
     let currency: String?
     let primaryGenreName: String?
     let isStreamable: Bool?
+    let description: String?
     
     enum CodingKeys: String, CodingKey {
+        case description
         case kind
         case artistID
         case collectionID
@@ -108,7 +110,8 @@ class SearchResult: Codable {
          country: String?,
          currency: String?,
          primaryGenreName: String?,
-         isStreamable: Bool?) {
+         isStreamable: Bool?,
+         description: String?) {
         self.kind = kind
         self.artistID = artistID
         self.collectionID = collectionID
@@ -137,6 +140,7 @@ class SearchResult: Codable {
         self.releaseDate = releaseDate
         self.shortDescription = shortDescription
         self.longDescription = longDescription
+        self.description = description
     }
    
 }

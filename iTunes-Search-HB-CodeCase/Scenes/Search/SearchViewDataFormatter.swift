@@ -39,10 +39,10 @@ class SearchViewDataFormatter: SearchViewDataFormatterProtocol {
         let image = createImageData(by: list[index].artworkUrl100!)
         let trackName = list[index].trackName
         let collectionName = list[index].collectionName ?? list[index].trackCensoredName
-        let releaseDate = dateToString(with: list[index].releaseDate ?? "no release date")
+        let releaseDate = list[index].releaseDate?.dateToString(format: .short) ?? "No Release Date"
         let price = list[index].price
         let trackPrice = list[index].trackPrice
-        let guaranteedPrice = price ?? trackPrice
+        let guaranteedPrice = getPrice(price1: price, price2: trackPrice)
         
         return SearchDisplayerItemComponentData(
             imageData: CustomImageViewComponentData(imageUrl: image),
@@ -52,7 +52,7 @@ class SearchViewDataFormatter: SearchViewDataFormatterProtocol {
             releaseDate: LabelPackComponentData(
                 title: "Release Date:",
                 subtitle: releaseDate),
-            priceTag: PriceButtonViewData(price: "$ " + String(guaranteedPrice ?? 0.00)))
+            priceTag: PriceButtonViewData(price: guaranteedPrice))
     }
     
     private func createImageData(by value: String) -> String {
@@ -67,24 +67,15 @@ class SearchViewDataFormatter: SearchViewDataFormatterProtocol {
         list = []
     }
     
-    //MARK: - private function to convert date to human readable format
+    
+    //MARK: - Private function to get a non optional price tag from the API
 
-    private func dateToString(with date: String) -> String {
-        
-        var date = date
-        
-        let formatter1 = DateFormatter()
-        formatter1.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
-        
-        if let date2 = formatter1.date(from: date) {
-            let formatter2 = DateFormatter()
-            formatter2.dateFormat = "MMM yyyy"
-            formatter2.locale = Locale(identifier: "en_US_POSIX")
-            
-            let dateString = formatter2.string(from: date2)
-            date = dateString
+    private func getPrice(price1: Double?, price2: Double?) -> String {
+        if let garanti = price1 ?? price2, Int(garanti) != 0 {
+            return "$ " + String(garanti)
+        } else {
+            return "Free"
         }
-        return date
     }
     
 }
