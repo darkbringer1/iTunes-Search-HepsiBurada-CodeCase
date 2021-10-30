@@ -9,10 +9,13 @@ import Foundation
 
 class AdditionalInfoComponentData {
     
-    private(set) var info: String
+    private(set) var shortDescription: String
+    private(set) var longDescription: String
     
-    init(info: String) {
-        self.info = info
+    init(shortDescription: String,
+         longDescription: String) {
+        self.shortDescription = shortDescription
+        self.longDescription = longDescription
     }
     
 }

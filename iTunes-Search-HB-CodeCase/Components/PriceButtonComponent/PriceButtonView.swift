@@ -27,7 +27,7 @@ class PriceButtonView: GenericBaseView<PriceButtonViewData> {
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
         view.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        view.backgroundColor = #colorLiteral(red: 0.2392156869, green: 0.6745098233, blue: 0.9686274529, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.4117647059, green: 0.6509803922, blue: 0.9764705882, alpha: 1)
         return view
     }()
     
@@ -62,7 +62,7 @@ class PriceButtonView: GenericBaseView<PriceButtonViewData> {
             shadowContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
             shadowContainerView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            container.topAnchor.constraint(equalTo: shadowContainerView.topAnchor, constant: 5),
+            container.topAnchor.constraint(equalTo: shadowContainerView.topAnchor),
             container.bottomAnchor.constraint(equalTo: shadowContainerView.bottomAnchor),
             container.leadingAnchor.constraint(equalTo: shadowContainerView.leadingAnchor),
             container.trailingAnchor.constraint(equalTo: shadowContainerView.trailingAnchor),

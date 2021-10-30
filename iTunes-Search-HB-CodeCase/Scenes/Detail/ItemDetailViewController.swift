@@ -14,8 +14,6 @@ class ItemDetailViewController: BaseViewController<ItemDetailViewModel> {
     
     override func prepareViewControllerConfigurations() {
         super.prepareViewControllerConfigurations()
-        
-        view.backgroundColor = .brown
         addMainComponent()
         viewModelListeners()
         viewModel.getData()
@@ -29,8 +27,9 @@ class ItemDetailViewController: BaseViewController<ItemDetailViewModel> {
         
         NSLayoutConstraint.activate([
             
-            mainComponent.topAnchor.constraint(equalTo: view.topAnchor, constant: 40),
-            mainComponent.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            mainComponent.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            mainComponent.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            mainComponent.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             
         ])
         

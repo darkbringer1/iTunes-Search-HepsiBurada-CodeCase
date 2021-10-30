@@ -44,23 +44,14 @@ class SearchViewDataFormatter: SearchViewDataFormatterProtocol {
         let trackPrice = list[index].trackPrice
         let guaranteedPrice = price ?? trackPrice
         
-        
-        
         return SearchDisplayerItemComponentData(
             imageData: CustomImageViewComponentData(imageUrl: image),
             trackNameDescription: LabelPackComponentData(
                 title: trackName,
-                subtitle: collectionName!)
-                .setTitleLabelDistributionData(by: LabelDistributionData()
-                                                .setTextAlignment(by: .left)
-                                                .setNumberOfLines(by: 2)
-                                                .setLineBreakMode(by: .byTruncatingTail)
-                                                .setContentMode(by: .left)),
+                subtitle: collectionName!),
             releaseDate: LabelPackComponentData(
                 title: "Release Date:",
-                subtitle: releaseDate)
-                .setTitleLabelDistributionData(by: LabelDistributionData()
-                                                .setFont(by: RobotoHelper.bold(5).value)),
+                subtitle: releaseDate),
             priceTag: PriceButtonViewData(price: "$ " + String(guaranteedPrice ?? 0.00)))
     }
     
@@ -70,7 +61,6 @@ class SearchViewDataFormatter: SearchViewDataFormatterProtocol {
     
     func getItemId(at index: Int) -> Int {
         return list[index].trackId!
-         
     }
     
     func clearCollectionView() {

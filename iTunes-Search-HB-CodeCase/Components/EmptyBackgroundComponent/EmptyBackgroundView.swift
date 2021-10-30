@@ -81,8 +81,18 @@ class EmptyBackgroundView: GenericBaseView<EmptyBackgroundViewData> {
     
     private func getLabelPackComponentData() -> LabelPackComponentData {
         return LabelPackComponentData()
-            .setTitleLabelDistributionData(by: LabelDistributionData().setContentMode(by: .center).setTextAlignment(by: .center).setNumberOfLines(by: 1).setLineBreakMode(by: .byWordWrapping).setFont(by: RobotoHelper.bold(24).value))
-            .setSubtitleLabelDistributionData(by: LabelDistributionData().setContentMode(by: .center).setTextAlignment(by: .center).setNumberOfLines(by: 2).setLineBreakMode(by: .byWordWrapping).setFont(by: RobotoHelper.regular(16).value))
+            .setTitleLabelDistributionData(by: LabelDistributionData()
+                                            .setContentMode(by: .center)
+                                            .setTextAlignment(by: .center)
+                                            .setNumberOfLines(by: 0)
+                                            .setLineBreakMode(by: .byWordWrapping)
+                                            .setFont(by: RobotoHelper.bold(24).value))
+            .setSubtitleLabelDistributionData(by: LabelDistributionData()
+                                                .setContentMode(by: .center)
+                                                .setTextAlignment(by: .center)
+                                                .setNumberOfLines(by: 2)
+                                                .setLineBreakMode(by: .byWordWrapping)
+                                                .setFont(by: RobotoHelper.regular(16).value))
             .setSpacing(by: 10)
             .setStackViewAlignment(by: .fill)
     }

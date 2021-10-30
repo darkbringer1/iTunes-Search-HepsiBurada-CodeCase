@@ -16,7 +16,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     
     override func prepareViewControllerConfigurations() {
         super.prepareViewControllerConfigurations()
-        view.backgroundColor = .blue
+        view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 0.4, blue: 0.8, alpha: 1)
         addSearchButton()
         addMainComponent()
         addViewModelListeners()
@@ -80,15 +80,12 @@ class SearchViewController: BaseViewController<SearchViewModel> {
                 navigationItem.titleView = nil
             }
         }
-        
     }
     
     @objc private func handleShowSearchBar() {
-        UIView.animate(withDuration: 0.3) { [self] in
             search(shouldShow: true)
             navigationItem.rightBarButtonItem = nil
             searchBar.becomeFirstResponder()
-        }
     }
     
     //when we push the search icon we should show the search bar and when we hit the cancel button we need to hide search bar.
@@ -108,7 +105,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     private func fireDetailView(with data: ItemDetailRequest) {
         let viewController = ItemDetailViewBuilder.build(with: data)
 //        navigationController?.pushViewController(viewController, animated: true)
-present(viewController, animated: true, completion: nil)
+        present(viewController, animated: true, completion: nil)
     }
     
 }
@@ -121,15 +118,13 @@ extension SearchViewController: UISearchBarDelegate {
         let text = searchText.replacingOccurrences(of: " ", with: "+")
         
         viewModel.term = text
-        
+        viewModel.clearOffset()
         if text.count > 2 {
             viewModel.getData()
             mainComponent.reloadCollectionView()
         } else { return }
         
     }
-    
-   
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         print("begin editing")
@@ -143,7 +138,8 @@ extension SearchViewController: UISearchBarDelegate {
         print("\(selectedScope)")
         let entity = selectedScopeToPathConverter(scope: selectedScope)
         viewModel.entity = entity
-        viewModel.getData()
+//        viewModel.getData()
+        viewModel.clearOffset()
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {

@@ -33,7 +33,6 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
     private lazy var mainStack: UIStackView = {
         let temp = UIStackView(arrangedSubviews: [imagePriceRelease, trackNameDescription])
         temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.alignment = .top
         temp.distribution = .fillProportionally
         temp.axis = .vertical
         return temp
@@ -109,10 +108,10 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
             containerView.leadingAnchor.constraint(equalTo: shadowContainerView.leadingAnchor),
             containerView.trailingAnchor.constraint(equalTo: shadowContainerView.trailingAnchor),
             
-            mainStack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 5),
+            mainStack.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 10),
             mainStack.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -15),
             mainStack.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: 5),
-            mainStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -5),
+            mainStack.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -10),
             
         ])
         
@@ -126,7 +125,6 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
         priceTag.setData(by: data.priceTag)
         trackNameDescription.setData(by: data.trackNameDescription)
         mainStack.setCustomSpacing(5 , after: imagePriceRelease)
-        
     }
     
 }

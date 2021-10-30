@@ -12,15 +12,6 @@ import BaseComponents
 
 class CustomImageViewComponentContainer: GenericBaseView<CustomImageViewComponentData> {
     
-    private lazy var containerView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = 10
-        view.clipsToBounds = true
-        view.backgroundColor = .lightGray
-        return view
-    }()
-    
     private lazy var shadowContainerView: UIView = {
         let shadow = UIView()
         shadow.translatesAutoresizingMaskIntoConstraints = false
@@ -30,6 +21,15 @@ class CustomImageViewComponentContainer: GenericBaseView<CustomImageViewComponen
         shadow.layer.shadowOpacity = 0.4
         shadow.layer.cornerRadius = 10
         return shadow
+    }()
+    
+    private lazy var containerView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.layer.cornerRadius = 10
+        view.clipsToBounds = true
+        view.backgroundColor = .lightGray
+        return view
     }()
     
     private lazy var customImageView: CustomImageViewComponent = {
@@ -60,8 +60,8 @@ class CustomImageViewComponentContainer: GenericBaseView<CustomImageViewComponen
             
             containerView.leadingAnchor.constraint(equalTo: shadowContainerView.leadingAnchor, constant: 5),
             containerView.trailingAnchor.constraint(equalTo: shadowContainerView.trailingAnchor, constant: -5),
-            containerView.topAnchor.constraint(equalTo: shadowContainerView.topAnchor, constant: 5),
-            containerView.bottomAnchor.constraint(equalTo: shadowContainerView.bottomAnchor, constant: -5),
+            containerView.topAnchor.constraint(equalTo: shadowContainerView.topAnchor),
+            containerView.bottomAnchor.constraint(equalTo: shadowContainerView.bottomAnchor, constant: -10),
             
             customImageView.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             customImageView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor),

@@ -87,7 +87,7 @@ class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
         titleLabel.textAlignment = data.titleLabelDistributionData.textAlignment
         titleLabel.font = data.titleLabelDistributionData.font
     }
-    
+
     private func setupSubtitleConfigurations() {
         guard let data = returnData() else { return }
         subtitleLabel.lineBreakMode = data.subtitleLabelDistributionData.lineBreakMode

@@ -14,7 +14,7 @@ class SearchViewModel {
     private var dataFormatter: SearchViewDataFormatterProtocol
     private var detailViewState: ((ItemDetailRequest) -> Void)?
     var term: String = ""
-    var entity: String = Paths.music.description
+    var entity: String = Paths.movie.description
     
     init(dataFormatter: SearchViewDataFormatterProtocol) {
         self.dataFormatter = dataFormatter
@@ -37,6 +37,10 @@ class SearchViewModel {
             fireApiCall(with: urlRequest, with: dataListener)
             print("\(urlRequest)")
         }
+    }
+    
+    func clearOffset() {
+        dataFormatter.paginationData.offset = 0
     }
     
     func subscribeViewState(with completion: @escaping (ViewState) -> Void) {

@@ -10,28 +10,71 @@ import BaseComponents
 
 class AdditionalInfoComponent: GenericBaseView<AdditionalInfoComponentData> {
     
+//    private lazy var scrollView: UIScrollView = {
+//        let view = UIScrollView()
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        view.layer.cornerRadius = 10
+//        view.clipsToBounds = true
+//        view.backgroundColor = .systemPink
+//        return view
+//    }()
+//
+    private lazy var shadowContainer: UIView = {
+        let shadow = UIView()
+        shadow.translatesAutoresizingMaskIntoConstraints = false
+        shadow.layer.shadowColor = UIColor.black.cgColor
+        shadow.layer.shadowOffset = CGSize(width: 0, height: 2)
+        shadow.layer.shadowRadius = 4
+        shadow.layer.shadowOpacity = 0.4
+        shadow.layer.cornerRadius = 6
+        return shadow
+    }()
+    
     private lazy var container: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.layer.cornerRadius = (superview?.frame.height ?? 20) / 2
+        view.layer.cornerRadius = 10
         view.clipsToBounds = true
-        view.backgroundColor = .systemPink
+        view.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         return view
     }()
     
-    private lazy var info: UILabel = {
+    private lazy var mainStack: UIStackView = {
+        let temp = UIStackView(arrangedSubviews: [shortDescription, longDescription])
+        temp.translatesAutoresizingMaskIntoConstraints = false
+        temp.alignment = .center
+        temp.distribution = .fillProportionally
+        temp.axis = .vertical
+        temp.spacing = 15
+        return temp
+    }()
+    
+    private lazy var shortDescription: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textColor = .black
         label.text = " "
         label.lineBreakMode = .byWordWrapping
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.contentMode = .center
         label.textAlignment = .center
-        label.font = RobotoHelper.regular(12).value
-        label.tintColor = .black
+        label.font = RobotoHelper.light(14).value
         return label
     }()
+    
+    private lazy var longDescription: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.textColor = .black
+        label.text = " "
+        label.lineBreakMode = .byWordWrapping
+        label.numberOfLines = 0
+        label.contentMode = .center
+        label.textAlignment = .center
+        label.font = RobotoHelper.regular(18).value
+        return label
+    }()
+    
     
     override func addMajorViewComponents() {
         super.addMajorViewComponents()
@@ -39,20 +82,31 @@ class AdditionalInfoComponent: GenericBaseView<AdditionalInfoComponentData> {
     }
     
     private func addComponents() {
-        addSubview(container)
-        container.addSubview(info)
+        addSubview(shadowContainer)
+        shadowContainer.addSubview(container)
+        container.addSubview(mainStack)
         
         NSLayoutConstraint.activate([
             
-            container.topAnchor.constraint(equalTo: topAnchor),
-            container.bottomAnchor.constraint(equalTo: bottomAnchor),
-            container.leadingAnchor.constraint(equalTo: leadingAnchor),
-            container.trailingAnchor.constraint(equalTo: trailingAnchor),
+//            scrollView.topAnchor.constraint(equalTo: topAnchor),
+//            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
+//            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            info.topAnchor.constraint(equalTo: container.topAnchor),
-            info.bottomAnchor.constraint(equalTo: container.bottomAnchor),
-            info.leadingAnchor.constraint(equalTo: container.leadingAnchor),
-            info.trailingAnchor.constraint(equalTo: container.trailingAnchor)
+            shadowContainer.topAnchor.constraint(equalTo: topAnchor),
+            shadowContainer.bottomAnchor.constraint(equalTo: bottomAnchor),
+            shadowContainer.leadingAnchor.constraint(equalTo: leadingAnchor),
+            shadowContainer.trailingAnchor.constraint(equalTo: trailingAnchor),
+            
+            container.topAnchor.constraint(equalTo: shadowContainer.topAnchor),
+            container.bottomAnchor.constraint(equalTo: shadowContainer.bottomAnchor),
+            container.leadingAnchor.constraint(equalTo: shadowContainer.leadingAnchor),
+            container.trailingAnchor.constraint(equalTo: shadowContainer.trailingAnchor),
+            
+            mainStack.topAnchor.constraint(equalTo: container.topAnchor, constant: 10),
+            mainStack.bottomAnchor.constraint(equalTo: container.bottomAnchor, constant: -10),
+            mainStack.leadingAnchor.constraint(equalTo: container.leadingAnchor, constant: 10),
+            mainStack.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -10),
             
         ])
     }
@@ -60,7 +114,8 @@ class AdditionalInfoComponent: GenericBaseView<AdditionalInfoComponentData> {
     override func loadDataView() {
         super.loadDataView()
         guard let data = returnData() else { return }
-        info.text = data.info
+        shortDescription.text = data.shortDescription
+        longDescription.text = data.longDescription
     }
     
 }

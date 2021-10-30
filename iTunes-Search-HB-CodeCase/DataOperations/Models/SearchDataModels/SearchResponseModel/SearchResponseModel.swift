@@ -33,8 +33,40 @@ class SearchResult: Codable {
     let releaseDate: String?
     let shortDescription: String?
     let longDescription: String?
+    let kind: String?
+    let artistID: Int?
+    let collectionID: Int?
+    let trackID: Int?
+    let artistName: String?
+    let collectionCensoredName: String?
+    let artistViewURL: String?
+    let collectionViewURL: String?
+    let trackViewURL: String?
+    let previewURL: String?
+    let collectionExplicitness: String?
+    let trackExplicitness: String?
+    let country: String?
+    let currency: String?
+    let primaryGenreName: String?
+    let isStreamable: Bool?
     
     enum CodingKeys: String, CodingKey {
+        case kind
+        case artistID
+        case collectionID
+        case trackID
+        case artistName
+        case collectionCensoredName
+        case artistViewURL
+        case collectionViewURL
+        case trackViewURL
+        case previewURL
+        case collectionExplicitness
+        case trackExplicitness
+        case country
+        case currency
+        case primaryGenreName
+        case isStreamable
         case price
         case trackCensoredName
         case formattedPrice
@@ -48,7 +80,7 @@ class SearchResult: Codable {
         case shortDescription
         case longDescription
     }
-
+    
     init(trackId: Int?,
          price: Double?,
          trackCensoredName: String?,
@@ -60,7 +92,39 @@ class SearchResult: Codable {
          collectionName: String?,
          releaseDate: String?,
          shortDescription: String?,
-         longDescription: String?) {
+         longDescription: String?,
+         kind: String?,
+         artistID: Int?,
+         collectionID: Int?,
+         trackID: Int?,
+         artistName: String?,
+         collectionCensoredName: String?,
+         artistViewURL: String?,
+         collectionViewURL: String?,
+         trackViewURL: String?,
+         previewURL: String?,
+         collectionExplicitness: String?,
+         trackExplicitness: String?,
+         country: String?,
+         currency: String?,
+         primaryGenreName: String?,
+         isStreamable: Bool?) {
+        self.kind = kind
+        self.artistID = artistID
+        self.collectionID = collectionID
+        self.trackID = trackID
+        self.artistName = artistName
+        self.collectionCensoredName = collectionCensoredName
+        self.artistViewURL = artistViewURL
+        self.collectionViewURL = collectionViewURL
+        self.trackViewURL = trackViewURL
+        self.previewURL = previewURL
+        self.collectionExplicitness = collectionExplicitness
+        self.trackExplicitness = trackExplicitness
+        self.country = country
+        self.currency = currency
+        self.primaryGenreName = primaryGenreName
+        self.isStreamable = isStreamable
         self.trackCensoredName = trackCensoredName
         self.price = price
         self.trackId = trackId

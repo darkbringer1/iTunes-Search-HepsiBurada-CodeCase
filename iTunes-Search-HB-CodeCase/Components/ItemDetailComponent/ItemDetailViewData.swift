@@ -10,12 +10,22 @@ import Foundation
 class ItemDetailViewData {
     
     private(set) var imageData: CustomImageViewComponentData
-    private(set) var labelPackData: LabelPackComponentData
-    
-    internal init(imageData: CustomImageViewComponentData,
-                  labelPackData: LabelPackComponentData) {
+    private(set) var trackNameDescription: LabelPackComponentData
+    private(set) var releaseDate: LabelPackComponentData
+    private(set) var priceTag: PriceButtonViewData
+    private(set) var additionalInfo: AdditionalInfoComponentData
+
+    init(imageData: CustomImageViewComponentData,
+         trackNameDescription: LabelPackComponentData,
+         releaseDate: LabelPackComponentData,
+         priceTag: PriceButtonViewData,
+         additionalInfo: AdditionalInfoComponentData) {
+        self.additionalInfo = additionalInfo
         self.imageData = imageData
-        self.labelPackData = labelPackData
+        self.trackNameDescription = trackNameDescription
+        self.releaseDate = releaseDate
+        self.priceTag = priceTag
     }
+    
     
 }
