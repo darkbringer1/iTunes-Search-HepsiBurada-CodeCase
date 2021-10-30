@@ -72,6 +72,8 @@ class SearchCollectionView: GenericBaseView<SearchCollectionViewData> {
     func isLoadingCell(for indexPath: IndexPath) -> Bool {
         return delegate?.isLoadingCell(for: indexPath.row) ?? false
     }
+    
+    //a function to setup empty background view
     private func setupBackgroundView() {
         emptyView = EmptyBackgroundView(frame: .zero,
                                         data: EmptyBackgroundViewData(
@@ -81,6 +83,7 @@ class SearchCollectionView: GenericBaseView<SearchCollectionViewData> {
         
         componentCollection.backgroundView = emptyView
     }
+    
 }
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource
@@ -92,8 +95,11 @@ extension SearchCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
+        //pagination loading cell view. if there are no more data, will not show this cell
         if isLoadingCell(for: indexPath) {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LoadingCellView.identifier, for: indexPath) as? LoadingCellView else { fatalError() }
+            //to prevent an app crash, loading cell is not clickable
+            cell.isUserInteractionEnabled = false
             return cell
         } else {
             guard let data = delegate?.askData(at: indexPath.row) else { fatalError("Please provide at least one item!") }
@@ -105,12 +111,16 @@ extension SearchCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
         
     }
     
+    //MARK: - AFTER PAGINATION COMPLETES, CALLS FOR MORE DATA FROM API
+
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if isLoadingCell(for: indexPath) {
             delegate?.getMoreData()
         }
     }
     
+    //MARK: - getting the selected item index information. To prevent repeated tapping, user interaction is disabled until the animation finishes.
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
         cell?.isUserInteractionEnabled = false
@@ -127,6 +137,8 @@ extension SearchCollectionView: UICollectionViewDelegate, UICollectionViewDataSo
 // MARK: - UICollectionViewDelegateFlowLayout
 extension SearchCollectionView: UICollectionViewDelegateFlowLayout {
     
+    //MARK: - CELL WIDTH AND HEIGHT
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
         let width = (UIScreen.main.bounds.width - 40) / 2

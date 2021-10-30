@@ -22,6 +22,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         addViewModelListeners()
     }
     
+    //method to add the collection view into view
     private func addMainComponent() {
         mainComponent = SearchCollectionView()
         mainComponent.translatesAutoresizingMaskIntoConstraints = false
@@ -37,6 +38,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
             mainComponent.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 
         ])
+        
     }
 
     //MARK: - PRIVATE METHODS
@@ -57,6 +59,7 @@ class SearchViewController: BaseViewController<SearchViewModel> {
         }
     }
     
+    //method to add the searchbar into view
     private func addSearchButton() {
         searchBar.sizeToFit()
         navigationItem.title = "iTunes Search"
@@ -70,18 +73,18 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     
     //button function from the magnifying glass icon in navigationBar right item
     private func showSearchBarButton(shouldShow: Bool) {
-        UIView.animate(withDuration: 0.3) { [self] in
-            if shouldShow {
-                navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search,
-                                                                    target: self,
-                                                                    action: .searchBarHandler)
-                
-            } else {
-                navigationItem.titleView = nil
-            }
+        let searchButton = UIBarButtonItem(barButtonSystemItem: .search,
+                                           target: self,
+                                           action: .searchBarHandler)
+        searchButton.tintColor = .black
+        if shouldShow {
+            navigationItem.rightBarButtonItem = searchButton
+        } else {
+            navigationItem.titleView = nil
         }
     }
     
+    //search icon button action
     @objc func handleShowSearchBar() {
             search(shouldShow: true)
             navigationItem.rightBarButtonItem = nil
@@ -89,22 +92,17 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     }
     
     //when we push the search icon we should show the search bar and when we hit the cancel button we need to hide search bar.
-    //calling this func in Delegate cancel func and addSearchBar func
+    //calling this func in searchbar delegate cancel func and addSearchBar func
     private func search(shouldShow: Bool) {
-        UIView.animate(withDuration: 0.3) { [self] in
             //when we hit the cancel button, search func will be false and will hide the magnifying glass button
             showSearchBarButton(shouldShow: !shouldShow)
             searchBar.showsCancelButton = shouldShow
-            
             //if its false we need searchbar to show the title, if its true we need to show search bar
             navigationItem.titleView = shouldShow ? searchBar : nil
-        }
-
     }
     
-    private func fireDetailView(with data: ItemDetailRequest) {
+    private func fireDetailView(with data: SearchDetailRequest) {
         let viewController = ItemDetailViewBuilder.build(with: data)
-//        navigationController?.pushViewController(viewController, animated: true)
         present(viewController, animated: true, completion: nil)
     }
     
@@ -113,16 +111,13 @@ class SearchViewController: BaseViewController<SearchViewModel> {
 extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//            searchpls(with: searchText)
         let text = searchText.replacingOccurrences(of: " ", with: "+")
-        
         viewModel.term = text
         viewModel.clearOffset()
         if text.count > 2 {
             viewModel.getData()
             mainComponent.reloadCollectionView()
         } else { return }
-        
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {

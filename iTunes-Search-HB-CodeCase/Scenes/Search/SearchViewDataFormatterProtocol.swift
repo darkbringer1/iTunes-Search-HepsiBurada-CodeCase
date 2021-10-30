@@ -8,11 +8,11 @@
 import Foundation
 import BaseComponents
 
+//MARK: - DEPENDENCY INVERSION PROTOCOLS
+
 protocol SearchViewDataFormatterProtocol {
     
     var paginationData: PaginationInfo { get set }
-    
-    func getNumberOfSection() -> Int
     
     func getNumbeOfItem(in section: Int) -> Int
     

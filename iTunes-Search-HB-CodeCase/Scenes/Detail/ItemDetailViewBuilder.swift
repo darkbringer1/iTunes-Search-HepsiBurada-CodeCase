@@ -10,7 +10,7 @@ import UIKit
 
 class ItemDetailViewBuilder {
     
-    class func build(with data: ItemDetailRequest) -> UIViewController {
+    class func build(with data: SearchDetailRequest) -> UIViewController {
         let formatter = ItemDetailDataFormatter()
         let viewModel = ItemDetailViewModel(formatter: formatter, data: data)
         return ItemDetailViewController(viewModel: viewModel)

@@ -31,31 +31,31 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
     }()
     
     private lazy var mainStack: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [imagePriceRelease, trackNameDescription])
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.distribution = .fillProportionally
-        temp.axis = .vertical
-        return temp
+        let stack = UIStackView(arrangedSubviews: [imagePriceRelease, trackNameDescription])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.distribution = .fillProportionally
+        stack.axis = .vertical
+        return stack
     }()
     
     private lazy var priceAndRelease: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [priceTag, releaseDate])
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.alignment = .leading
-        temp.distribution = .fill
-        temp.axis = .vertical
-        temp.spacing = 5
-        return temp
+        let stack = UIStackView(arrangedSubviews: [priceTag, releaseDate])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = .leading
+        stack.distribution = .fill
+        stack.axis = .vertical
+        stack.spacing = 5
+        return stack
     }()
     
     private lazy var imagePriceRelease: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [imageContainer, priceAndRelease])
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.alignment = .top
-        temp.distribution = .fillEqually
-        temp.axis = .horizontal
-        temp.spacing = 5
-        return temp
+        let stack = UIStackView(arrangedSubviews: [imageContainer, priceAndRelease])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = .top
+        stack.distribution = .fillEqually
+        stack.axis = .horizontal
+        stack.spacing = 5
+        return stack
     }()
     
     private lazy var priceTag: PriceButtonView = {
@@ -66,11 +66,11 @@ class SearchDisplayerItemComponent: GenericBaseView<GenericDataProtocol> {
     }()
     
     private lazy var imageContainer: CustomImageViewComponentContainer = {
-        let temp = CustomImageViewComponentContainer()
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.layer.cornerRadius = 10
-        temp.clipsToBounds = true
-        return temp
+        let image = CustomImageViewComponentContainer()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.layer.cornerRadius = 10
+        image.clipsToBounds = true
+        return image
     }()
     
     private lazy var releaseDate: LabelPackComponent = {

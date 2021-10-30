@@ -10,15 +10,6 @@ import BaseComponents
 
 class AdditionalInfoComponent: GenericBaseView<AdditionalInfoComponentData> {
     
-//    private lazy var scrollView: UIScrollView = {
-//        let view = UIScrollView()
-//        view.translatesAutoresizingMaskIntoConstraints = false
-//        view.layer.cornerRadius = 10
-//        view.clipsToBounds = true
-//        view.backgroundColor = .systemPink
-//        return view
-//    }()
-//
     private lazy var shadowContainer: UIView = {
         let shadow = UIView()
         shadow.translatesAutoresizingMaskIntoConstraints = false
@@ -40,13 +31,13 @@ class AdditionalInfoComponent: GenericBaseView<AdditionalInfoComponentData> {
     }()
     
     private lazy var mainStack: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [shortDescription, longDescription])
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.alignment = .center
-        temp.distribution = .fillProportionally
-        temp.axis = .vertical
-        temp.spacing = 15
-        return temp
+        let stack = UIStackView(arrangedSubviews: [shortDescription, longDescription])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = .center
+        stack.distribution = .fillProportionally
+        stack.axis = .vertical
+        stack.spacing = 15
+        return stack
     }()
     
     private lazy var shortDescription: UILabel = {
@@ -87,11 +78,6 @@ class AdditionalInfoComponent: GenericBaseView<AdditionalInfoComponentData> {
         container.addSubview(mainStack)
         
         NSLayoutConstraint.activate([
-            
-//            scrollView.topAnchor.constraint(equalTo: topAnchor),
-//            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             shadowContainer.topAnchor.constraint(equalTo: topAnchor),
             shadowContainer.bottomAnchor.constraint(equalTo: bottomAnchor),

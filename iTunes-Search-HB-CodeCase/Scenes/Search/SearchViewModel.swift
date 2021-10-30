@@ -12,7 +12,9 @@ class SearchViewModel {
     
     private var searchViewState: ((ViewState) -> Void)?
     private var dataFormatter: SearchViewDataFormatterProtocol
-    private var detailViewState: ((ItemDetailRequest) -> Void)?
+    private var detailViewState: ((SearchDetailRequest) -> Void)?
+    
+    //changing these parameters from
     var term: String = ""
     var entity: String = Paths.movie.description
     
@@ -22,11 +24,11 @@ class SearchViewModel {
     
     //MARK: - ACCESSABLE METHODS FROM VC
     
-    
-    func subscribeDetailViewState(with completion: @escaping (ItemDetailRequest) -> Void) {
+    func subscribeDetailViewState(with completion: @escaping (SearchDetailRequest) -> Void) {
         detailViewState = completion
     }
-        
+    
+    //calling the api for the with the request for data
     func getData() {
         if dataFormatter.paginationData.offset == 0 {
             dataFormatter.clearCollectionView()
@@ -39,6 +41,7 @@ class SearchViewModel {
         }
     }
     
+    //to clear the offset we send with the api request so that we always show an updated new page
     func clearOffset() {
         dataFormatter.paginationData.offset = 0
     }
@@ -65,7 +68,7 @@ class SearchViewModel {
     }
     
     
-    //MARK: - PRIVATE METHODS
+    //MARK: - PRIVATE METHODS TO HANDLE API CALLS
     
     private func fireApiCall(with request: URLRequest, with completion: @escaping (Result<SearchResponseModel, ErrorResponse>) -> Void) {
         APIManager.shared.executeRequest(urlRequest: request, completion: completion)
@@ -85,7 +88,6 @@ class SearchViewModel {
     }
     
     //MARK: - LISTENER HANDLERS
-    
     private lazy var dataListener: (Result<SearchResponseModel, ErrorResponse>) -> Void = { [weak self] result in
         self?.dataFormatter.paginationData.fetching = false
         switch result {
@@ -121,15 +123,7 @@ extension SearchViewModel: DataProviderProtocol {
     func selectedItem(at index: Int) {
         print("index: \(index)")
         //detail view will show according to below methods(to be added
-        detailViewState?(ItemDetailRequest(id: dataFormatter.getItemId(at: index)))
+        detailViewState?(SearchDetailRequest(id: dataFormatter.getItemId(at: index)))
     }
-    
-}
-
-enum ViewState {
-    
-    case loading
-    case done
-    case failure
     
 }

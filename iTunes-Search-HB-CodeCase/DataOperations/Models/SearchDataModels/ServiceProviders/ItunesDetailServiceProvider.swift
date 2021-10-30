@@ -8,9 +8,9 @@
 import Foundation
 import DefaultNetworkOperationPackage
 
-class ItunesDetailServiceProvider: ApiServiceProvider<ItemDetailRequest> {
+class ItunesDetailServiceProvider: ApiServiceProvider<SearchDetailRequest> {
     
-    init(request: ItemDetailRequest) {
+    init(request: SearchDetailRequest) {
         super.init(method: .get,
                    baseUrl: BaseUrl.base.description,
                    path: Paths.lookup.description,

@@ -9,6 +9,7 @@ import Foundation
 
 class ItemDetailDataFormatter: ItemDetailDataFormatterProcol {
     
+    //converting the SearchResult model with something viewModel can understand.
     func convertItemDetailView(from rawData: SearchResult) -> ItemDetailViewData {
         
         let image = createImageData(by: rawData.artworkUrl100!)
@@ -30,14 +31,12 @@ class ItemDetailDataFormatter: ItemDetailDataFormatterProcol {
                                     longDescription: longDescription ?? "No Description given about this product"))
     }
     
-    //MARK: - private function to convert date to human readable format 
-
-    private func createImageData(by value: String) -> String {
-        return "\(value)"
+    //image url as string. if url is nil will return empty string to prevent a crash
+    private func createImageData(by value: String?) -> String {
+        return value ?? ""
     }
-    
-    //MARK: - Private function to get a non optional price tag from the API
-    
+
+    //Private function to get a non optional price tag from the API
     private func getPrice(price1: Double?, price2: Double?) -> String {
         if let garanti = price1 ?? price2, Int(garanti) != 0 {
             return "$ " + String(garanti)
@@ -45,4 +44,5 @@ class ItemDetailDataFormatter: ItemDetailDataFormatterProcol {
             return "Free"
         }
     }
+    
 }

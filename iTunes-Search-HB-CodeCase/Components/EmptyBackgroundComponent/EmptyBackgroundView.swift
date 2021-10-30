@@ -20,31 +20,31 @@ class EmptyBackgroundView: GenericBaseView<EmptyBackgroundViewData> {
     }()
     
     private lazy var mainStackView: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [imageContainer, infoView])
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.isUserInteractionEnabled = true
-        temp.alignment = .fill
-        temp.distribution = .fill
-        temp.axis = .vertical
-        temp.spacing = 20
-        return temp
+        let stack = UIStackView(arrangedSubviews: [imageContainer, infoView])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.isUserInteractionEnabled = true
+        stack.alignment = .fill
+        stack.distribution = .fill
+        stack.axis = .vertical
+        stack.spacing = 20
+        return stack
     }()
     
     private lazy var imageContainer: UIImageView = {
-        let temp = UIImageView()
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.layer.cornerRadius = 5
-        temp.clipsToBounds = true
-        temp.image = UIImage(named: "itunes-icon")
-        temp.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40).isActive = true
-        temp.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40).isActive = true
-        return temp
+        let image = UIImageView()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.layer.cornerRadius = 5
+        image.clipsToBounds = true
+        image.image = UIImage(named: "itunes-icon")
+        image.heightAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40).isActive = true
+        image.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 40).isActive = true
+        return image
     }()
     
     private lazy var infoView: LabelPackComponent = {
-        let temp = LabelPackComponent(data: getLabelPackComponentData())
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        return temp
+        let info = LabelPackComponent(data: getLabelPackComponentData())
+        info.translatesAutoresizingMaskIntoConstraints = false
+        return info
     }()
     
     override func addMajorViewComponents() {

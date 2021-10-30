@@ -38,4 +38,5 @@ class SearchCollectionViewCell: BaseCollectionViewCell {
     func setData(by value: GenericDataProtocol) {
         contentDisplayer.setData(by: value)
     }
+    
 }

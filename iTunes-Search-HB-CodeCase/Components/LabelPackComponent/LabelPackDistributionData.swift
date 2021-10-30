@@ -7,6 +7,8 @@
 
 import UIKit
 
+//MARK: - A CLASS TO MANIPULATE LABEL PACK COMPONENT CONFIGURATIONS
+
 class LabelDistributionData {
     
     private(set) var lineBreakMode: NSLineBreakMode = .byWordWrapping

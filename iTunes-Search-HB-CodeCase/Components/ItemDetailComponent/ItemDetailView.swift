@@ -10,17 +10,6 @@ import BaseComponents
 
 class ItemDetailView: GenericBaseView<ItemDetailViewData> {
     
-//    private lazy var shadowContainerView: UIView = {
-//        let shadow = UIView()
-//        shadow.translatesAutoresizingMaskIntoConstraints = false
-//        shadow.layer.shadowColor = UIColor.black.cgColor
-//        shadow.layer.shadowOffset = CGSize(width: 0, height: 2)
-//        shadow.layer.shadowRadius = 4
-//        shadow.layer.shadowOpacity = 0.4
-//        shadow.layer.cornerRadius = 6
-//        return shadow
-//    }()
-    
     private lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -32,42 +21,42 @@ class ItemDetailView: GenericBaseView<ItemDetailViewData> {
     }()
     
     private lazy var mainStack: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [imagePriceRelease, trackNameDescription, additionalInfo])
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.alignment = .top
-        temp.distribution = .fillProportionally
-        temp.axis = .vertical
-        return temp
+        let stack = UIStackView(arrangedSubviews: [imagePriceRelease, trackNameDescription, additionalInfo])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = .top
+        stack.distribution = .fillProportionally
+        stack.axis = .vertical
+        return stack
     }()
     
     private lazy var priceAndRelease: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [releaseDate, priceStack])
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.alignment = .leading
-        temp.distribution = .fill
-        temp.axis = .vertical
-        temp.spacing = 5
-        return temp
+        let stack = UIStackView(arrangedSubviews: [releaseDate, priceStack])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = .leading
+        stack.distribution = .fill
+        stack.axis = .vertical
+        stack.spacing = 5
+        return stack
     }()
     
     private lazy var imagePriceRelease: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [imageContainer, priceAndRelease])
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.alignment = .top
-        temp.distribution = .fill
-        temp.axis = .horizontal
-        temp.spacing = 5
-        return temp
+        let stack = UIStackView(arrangedSubviews: [imageContainer, priceAndRelease])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = .top
+        stack.distribution = .fill
+        stack.axis = .horizontal
+        stack.spacing = 5
+        return stack
     }()
     
     private lazy var priceStack: UIStackView = {
-        let temp = UIStackView(arrangedSubviews: [productPrice, priceTag])
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.alignment = .center
-        temp.distribution = .fill
-        temp.axis = .horizontal
-        temp.spacing = 5
-        return temp
+        let stack = UIStackView(arrangedSubviews: [productPrice, priceTag])
+        stack.translatesAutoresizingMaskIntoConstraints = false
+        stack.alignment = .center
+        stack.distribution = .fill
+        stack.axis = .horizontal
+        stack.spacing = 5
+        return stack
     }()
     
     lazy var productPrice: UILabel = {
@@ -91,13 +80,13 @@ class ItemDetailView: GenericBaseView<ItemDetailViewData> {
     }()
     
     private lazy var imageContainer: CustomImageViewComponentContainer = {
-        let temp = CustomImageViewComponentContainer()
-        temp.translatesAutoresizingMaskIntoConstraints = false
-        temp.layer.cornerRadius = 10
-        temp.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        temp.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        temp.clipsToBounds = true
-        return temp
+        let image = CustomImageViewComponentContainer()
+        image.translatesAutoresizingMaskIntoConstraints = false
+        image.layer.cornerRadius = 10
+        image.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        image.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        image.clipsToBounds = true
+        return image
     }()
     
     private lazy var releaseDate: LabelPackComponent = {
@@ -126,17 +115,11 @@ class ItemDetailView: GenericBaseView<ItemDetailViewData> {
         setupContainerViewLayers()
     }
     private func addComponents() {
-//        addSubview(shadowContainerView)
         addSubview(containerView)
         containerView.addSubview(mainStack)
         
         NSLayoutConstraint.activate([
             
-//            shadowContainerView.topAnchor.constraint(equalTo: topAnchor),
-//            shadowContainerView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//            shadowContainerView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            shadowContainerView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//
             containerView.topAnchor.constraint(equalTo: topAnchor),
             containerView.bottomAnchor.constraint(equalTo: bottomAnchor),
             containerView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -176,7 +159,4 @@ class ItemDetailView: GenericBaseView<ItemDetailViewData> {
         isHidden = !value
     }
     
-    private func getSize() -> CGFloat {
-        return (UIScreen.main.bounds.size.width - 60) / 3
-    }
 }

@@ -79,6 +79,8 @@ class LabelPackComponent: GenericBaseView<LabelPackComponentData> {
         
     }
     
+    //MARK: - METHODS TO ACCESS COMPONENT CONFIGURATIONS
+
     private func setupTitleConfigurations() {
         guard let data = returnData() else { return }
         titleLabel.lineBreakMode = data .titleLabelDistributionData.lineBreakMode
