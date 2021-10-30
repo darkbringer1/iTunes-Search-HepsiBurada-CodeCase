@@ -71,7 +71,7 @@ class SearchViewModel {
     //MARK: - PRIVATE METHODS TO HANDLE API CALLS
     
     private func fireApiCall(with request: URLRequest, with completion: @escaping (Result<SearchResponseModel, ErrorResponse>) -> Void) {
-        APIManager.shared.executeRequest(urlRequest: request, completion: completion)
+        ApiManagerBuilder.build().executeRequest(urlRequest: request, completion: completion)
     }
 
     private func getSearchRequest(term: String?, entity: String) -> SearchDataRequest {

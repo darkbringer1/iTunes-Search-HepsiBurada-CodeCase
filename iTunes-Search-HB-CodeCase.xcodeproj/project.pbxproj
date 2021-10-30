@@ -67,6 +67,15 @@
 		D8EECB92272D818100C201DB /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECB91272D818100C201DB /* String+Extension.swift */; };
 		D8EECB95272D9DED00C201DB /* Selector+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECB94272D9DED00C201DB /* Selector+Extension.swift */; };
 		D8EECB9E272DCEB700C201DB /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECB9D272DCEB700C201DB /* ViewState.swift */; };
+		D8EECBA1272DD56700C201DB /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D8EECBA0272DD56700C201DB /* Lottie */; };
+		D8EECBA7272DD76800C201DB /* loading-lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = D8EECBA6272DD76800C201DB /* loading-lottie.json */; };
+		D8EECBAA272DD7B800C201DB /* LottieManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECBA9272DD7B800C201DB /* LottieManagerProtocol.swift */; };
+		D8EECBAC272DD7C800C201DB /* LottieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECBAB272DD7C800C201DB /* LottieManager.swift */; };
+		D8EECBAF272DD81200C201DB /* AtomicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECBAE272DD81200C201DB /* AtomicValue.swift */; };
+		D8EECBB2272DD85000C201DB /* LottieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECBB1272DD85000C201DB /* LottieViewController.swift */; };
+		D8EECBB5272DD88000C201DB /* ApiManagerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECBB4272DD88000C201DB /* ApiManagerBuilder.swift */; };
+		D8EECBB7272DD89E00C201DB /* ApiCallListenerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECBB6272DD89E00C201DB /* ApiCallListenerManager.swift */; };
+		D8EECBB9272DD93A00C201DB /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECBB8272DD93A00C201DB /* UIApplication+Extension.swift */; };
 		D8F80500272B14760017034C /* PriceButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F804FE272B14760017034C /* PriceButtonView.swift */; };
 		D8F80501272B14760017034C /* PriceButtonViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F804FF272B14760017034C /* PriceButtonViewData.swift */; };
 		D8F80504272B1C650017034C /* AdditionalInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F80503272B1C650017034C /* AdditionalInfoComponent.swift */; };
@@ -134,6 +143,14 @@
 		D8EECB91272D818100C201DB /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		D8EECB94272D9DED00C201DB /* Selector+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Selector+Extension.swift"; sourceTree = "<group>"; };
 		D8EECB9D272DCEB700C201DB /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		D8EECBA6272DD76800C201DB /* loading-lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loading-lottie.json"; sourceTree = "<group>"; };
+		D8EECBA9272DD7B800C201DB /* LottieManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManagerProtocol.swift; sourceTree = "<group>"; };
+		D8EECBAB272DD7C800C201DB /* LottieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieManager.swift; sourceTree = "<group>"; };
+		D8EECBAE272DD81200C201DB /* AtomicValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicValue.swift; sourceTree = "<group>"; };
+		D8EECBB1272DD85000C201DB /* LottieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewController.swift; sourceTree = "<group>"; };
+		D8EECBB4272DD88000C201DB /* ApiManagerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerBuilder.swift; sourceTree = "<group>"; };
+		D8EECBB6272DD89E00C201DB /* ApiCallListenerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCallListenerManager.swift; sourceTree = "<group>"; };
+		D8EECBB8272DD93A00C201DB /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
 		D8F804FE272B14760017034C /* PriceButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceButtonView.swift; sourceTree = "<group>"; };
 		D8F804FF272B14760017034C /* PriceButtonViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceButtonViewData.swift; sourceTree = "<group>"; };
 		D8F80503272B1C650017034C /* AdditionalInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoComponent.swift; sourceTree = "<group>"; };
@@ -147,6 +164,7 @@
 			files = (
 				D8536E352726D15200D138EA /* DefaultNetworkOperationPackage in Frameworks */,
 				D8536E162726B64E00D138EA /* BaseComponents in Frameworks */,
+				D8EECBA1272DD56700C201DB /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,13 +190,13 @@
 		D8536DF82725F3CE00D138EA /* iTunes-Search-HB-CodeCase */ = {
 			isa = PBXGroup;
 			children = (
+				D8EECBA2272DD57000C201DB /* Resources */,
 				D8536E46272701AA00D138EA /* DataOperations */,
 				D8536E172726B6AF00D138EA /* Components */,
 				D8536E0D2726B5C000D138EA /* Scenes */,
 				D8536E302726CC4C00D138EA /* Utilities */,
 				D8536DFD2725F3CE00D138EA /* ViewController.swift */,
 				D8536DF92725F3CE00D138EA /* AppDelegate.swift */,
-				D8536E022725F3D100D138EA /* Assets.xcassets */,
 				D8536E042725F3D100D138EA /* LaunchScreen.storyboard */,
 				D8536E072725F3D100D138EA /* Info.plist */,
 			);
@@ -188,6 +206,7 @@
 		D8536E0D2726B5C000D138EA /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				D8EECBB0272DD83000C201DB /* LottieAnimation */,
 				D8536EAC27296B3100D138EA /* Detail */,
 				D8536E102726B5D700D138EA /* Search */,
 			);
@@ -280,6 +299,8 @@
 		D8536E46272701AA00D138EA /* DataOperations */ = {
 			isa = PBXGroup;
 			children = (
+				D8EECBB3272DD86A00C201DB /* ApiManagerModules */,
+				D8EECBA8272DD79C00C201DB /* LottieManager */,
 				D8536E8C27273A2200D138EA /* DataProviderProtocol */,
 				D8536E182726B79B00D138EA /* Models */,
 			);
@@ -394,6 +415,7 @@
 				D8536E8A272739A900D138EA /* UICollectionView+Extension.swift */,
 				D8EECB94272D9DED00C201DB /* Selector+Extension.swift */,
 				D8EECB91272D818100C201DB /* String+Extension.swift */,
+				D8EECBB8272DD93A00C201DB /* UIApplication+Extension.swift */,
 				D8536E8F27273B4400D138EA /* UIView+Extensions.swift */,
 			);
 			path = Extensions;
@@ -445,6 +467,58 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
+		D8EECBA2272DD57000C201DB /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D8EECBAD272DD80700C201DB /* AtomicTypes */,
+				D8EECBA3272DD57900C201DB /* Lottie */,
+				D8536E022725F3D100D138EA /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D8EECBA3272DD57900C201DB /* Lottie */ = {
+			isa = PBXGroup;
+			children = (
+				D8EECBA6272DD76800C201DB /* loading-lottie.json */,
+			);
+			path = Lottie;
+			sourceTree = "<group>";
+		};
+		D8EECBA8272DD79C00C201DB /* LottieManager */ = {
+			isa = PBXGroup;
+			children = (
+				D8EECBA9272DD7B800C201DB /* LottieManagerProtocol.swift */,
+				D8EECBAB272DD7C800C201DB /* LottieManager.swift */,
+			);
+			path = LottieManager;
+			sourceTree = "<group>";
+		};
+		D8EECBAD272DD80700C201DB /* AtomicTypes */ = {
+			isa = PBXGroup;
+			children = (
+				D8EECBAE272DD81200C201DB /* AtomicValue.swift */,
+			);
+			path = AtomicTypes;
+			sourceTree = "<group>";
+		};
+		D8EECBB0272DD83000C201DB /* LottieAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				D8EECBB1272DD85000C201DB /* LottieViewController.swift */,
+			);
+			path = LottieAnimation;
+			sourceTree = "<group>";
+		};
+		D8EECBB3272DD86A00C201DB /* ApiManagerModules */ = {
+			isa = PBXGroup;
+			children = (
+				D8EECBB4272DD88000C201DB /* ApiManagerBuilder.swift */,
+				D8EECBB6272DD89E00C201DB /* ApiCallListenerManager.swift */,
+			);
+			path = ApiManagerModules;
+			sourceTree = "<group>";
+		};
 		D8F804FD272B14760017034C /* PriceButtonComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -482,6 +556,7 @@
 			packageProductDependencies = (
 				D8536E152726B64E00D138EA /* BaseComponents */,
 				D8536E342726D15200D138EA /* DefaultNetworkOperationPackage */,
+				D8EECBA0272DD56700C201DB /* Lottie */,
 			);
 			productName = "iTunes-Search-HB-CodeCase";
 			productReference = D8536DF62725F3CE00D138EA /* iTunes-Search-HB-CodeCase.app */;
@@ -513,6 +588,7 @@
 			packageReferences = (
 				D8536E142726B64E00D138EA /* XCRemoteSwiftPackageReference "BaseComponents" */,
 				D8536E332726D15200D138EA /* XCRemoteSwiftPackageReference "DefaultNetworkOperationPackage" */,
+				D8EECB9F272DD56700C201DB /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = D8536DF72725F3CE00D138EA /* Products */;
 			projectDirPath = "";
@@ -535,6 +611,7 @@
 				D8536E062725F3D100D138EA /* LaunchScreen.storyboard in Resources */,
 				D8536E032725F3D100D138EA /* Assets.xcassets in Resources */,
 				D8536E6C272712C300D138EA /* Roboto-BoldItalic.ttf in Resources */,
+				D8EECBA7272DD76800C201DB /* loading-lottie.json in Resources */,
 				D8536E69272712C300D138EA /* Roboto-Regular.ttf in Resources */,
 				D8536E6B272712C300D138EA /* Roboto-ThinItalic.ttf in Resources */,
 				D8536E6D272712C300D138EA /* Roboto-LightItalic.ttf in Resources */,
@@ -557,6 +634,7 @@
 				D8536E572727127C00D138EA /* LabelPackDistributionData.swift in Sources */,
 				D8536EA02728534C00D138EA /* EmptyBackgroundViewData.swift in Sources */,
 				D8536E552727123400D138EA /* LabelPackComponentData.swift in Sources */,
+				D8EECBB9272DD93A00C201DB /* UIApplication+Extension.swift in Sources */,
 				D8536E0F2726B5D300D138EA /* SearchViewController.swift in Sources */,
 				D8536E1D2726BCE000D138EA /* PaginationInfo.swift in Sources */,
 				D8F80507272B1C710017034C /* AdditionalInfoComponentData.swift in Sources */,
@@ -565,6 +643,7 @@
 				D8536E2E2726CC0E00D138EA /* SearchDataRequest.swift in Sources */,
 				D8EECB9E272DCEB700C201DB /* ViewState.swift in Sources */,
 				D8536E80272725CC00D138EA /* SearchCollectionViewCell.swift in Sources */,
+				D8EECBAC272DD7C800C201DB /* LottieManager.swift in Sources */,
 				D8536EB227296E3000D138EA /* ItemDetailViewController.swift in Sources */,
 				D8536E9827280F1900D138EA /* SearchViewBuilder.swift in Sources */,
 				D8536E83272729FE00D138EA /* SearchDisplayerItemComponent.swift in Sources */,
@@ -582,16 +661,21 @@
 				D8536E9A27281CFA00D138EA /* ItunesServiceProvider.swift in Sources */,
 				D8F80501272B14760017034C /* PriceButtonViewData.swift in Sources */,
 				D8EECB95272D9DED00C201DB /* Selector+Extension.swift in Sources */,
+				D8EECBB5272DD88000C201DB /* ApiManagerBuilder.swift in Sources */,
 				D8536E7C272724C200D138EA /* SearchCollectionView.swift in Sources */,
 				D8536E4E272704C400D138EA /* ImageCacheManager.swift in Sources */,
 				D8536EA62729687E00D138EA /* ItemDetailViewData.swift in Sources */,
 				D8536EB427296E3800D138EA /* ItemDetailViewModel.swift in Sources */,
+				D8EECBB2272DD85000C201DB /* LottieViewController.swift in Sources */,
+				D8EECBAF272DD81200C201DB /* AtomicValue.swift in Sources */,
 				D8F80500272B14760017034C /* PriceButtonView.swift in Sources */,
 				D8536EB027296B8B00D138EA /* ItemDetailDataFormatter.swift in Sources */,
 				D8536E8B272739A900D138EA /* UICollectionView+Extension.swift in Sources */,
+				D8EECBAA272DD7B800C201DB /* LottieManagerProtocol.swift in Sources */,
 				D8536DFE2725F3CE00D138EA /* ViewController.swift in Sources */,
 				D8F80504272B1C650017034C /* AdditionalInfoComponent.swift in Sources */,
 				D8536EAB27296AC600D138EA /* ItunesDetailServiceProvider.swift in Sources */,
+				D8EECBB7272DD89E00C201DB /* ApiCallListenerManager.swift in Sources */,
 				D8536E1A2726B7A400D138EA /* SearchResponseModel.swift in Sources */,
 				D8536E932727618500D138EA /* SearchViewDataFormatterProtocol.swift in Sources */,
 				D8536E5127270C2300D138EA /* CustomImageViewComponentContainer.swift in Sources */,
@@ -811,6 +895,14 @@
 				minimumVersion = 1.4.0;
 			};
 		};
+		D8EECB9F272DD56700C201DB /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.3;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -823,6 +915,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D8536E332726D15200D138EA /* XCRemoteSwiftPackageReference "DefaultNetworkOperationPackage" */;
 			productName = DefaultNetworkOperationPackage;
+		};
+		D8EECBA0272DD56700C201DB /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D8EECB9F272DD56700C201DB /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

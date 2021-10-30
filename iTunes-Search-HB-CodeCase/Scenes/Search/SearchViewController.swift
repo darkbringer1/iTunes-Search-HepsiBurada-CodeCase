@@ -13,6 +13,8 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     
     private var mainComponent: SearchCollectionView!
     private let searchBar = UISearchBar()
+    private var searchWorkItem: DispatchWorkItem?
+    
     
     override func prepareViewControllerConfigurations() {
         super.prepareViewControllerConfigurations()
@@ -114,10 +116,17 @@ extension SearchViewController: UISearchBarDelegate {
         let text = searchText.replacingOccurrences(of: " ", with: "+")
         viewModel.term = text
         viewModel.clearOffset()
+        
+        //Dispatch work item added to delay making api calls by 1 second everytime user types in the searchbar
         if text.count > 2 {
-            viewModel.getData()
-            mainComponent.reloadCollectionView()
-        } else { return }
+            searchWorkItem?.cancel()
+            let newTask = DispatchWorkItem { [weak self] in
+                self?.viewModel.getData()
+                self?.mainComponent.reloadCollectionView()
+            }
+            self.searchWorkItem = newTask
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: newTask)
+        }
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
