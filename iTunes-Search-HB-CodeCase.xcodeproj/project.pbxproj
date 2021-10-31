@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D8536DFA2725F3CE00D138EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536DF92725F3CE00D138EA /* AppDelegate.swift */; };
-		D8536DFE2725F3CE00D138EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536DFD2725F3CE00D138EA /* ViewController.swift */; };
 		D8536E032725F3D100D138EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8536E022725F3D100D138EA /* Assets.xcassets */; };
 		D8536E062725F3D100D138EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8536E042725F3D100D138EA /* LaunchScreen.storyboard */; };
 		D8536E0F2726B5D300D138EA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8536E0E2726B5D300D138EA /* SearchViewController.swift */; };
@@ -76,6 +75,8 @@
 		D8EECBB5272DD88000C201DB /* ApiManagerBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECBB4272DD88000C201DB /* ApiManagerBuilder.swift */; };
 		D8EECBB7272DD89E00C201DB /* ApiCallListenerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECBB6272DD89E00C201DB /* ApiCallListenerManager.swift */; };
 		D8EECBB9272DD93A00C201DB /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECBB8272DD93A00C201DB /* UIApplication+Extension.swift */; };
+		D8EECBBB272EBC7700C201DB /* AdditionalInfoDistributionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECBBA272EBC7700C201DB /* AdditionalInfoDistributionData.swift */; };
+		D8EECBBE272EC87100C201DB /* ItunesCodeCaseColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EECBBD272EC87100C201DB /* ItunesCodeCaseColor.swift */; };
 		D8F80500272B14760017034C /* PriceButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F804FE272B14760017034C /* PriceButtonView.swift */; };
 		D8F80501272B14760017034C /* PriceButtonViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F804FF272B14760017034C /* PriceButtonViewData.swift */; };
 		D8F80504272B1C650017034C /* AdditionalInfoComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F80503272B1C650017034C /* AdditionalInfoComponent.swift */; };
@@ -85,7 +86,6 @@
 /* Begin PBXFileReference section */
 		D8536DF62725F3CE00D138EA /* iTunes-Search-HB-CodeCase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iTunes-Search-HB-CodeCase.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8536DF92725F3CE00D138EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D8536DFD2725F3CE00D138EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D8536E022725F3D100D138EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D8536E052725F3D100D138EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D8536E072725F3D100D138EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -151,6 +151,8 @@
 		D8EECBB4272DD88000C201DB /* ApiManagerBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiManagerBuilder.swift; sourceTree = "<group>"; };
 		D8EECBB6272DD89E00C201DB /* ApiCallListenerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCallListenerManager.swift; sourceTree = "<group>"; };
 		D8EECBB8272DD93A00C201DB /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		D8EECBBA272EBC7700C201DB /* AdditionalInfoDistributionData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoDistributionData.swift; sourceTree = "<group>"; };
+		D8EECBBD272EC87100C201DB /* ItunesCodeCaseColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesCodeCaseColor.swift; sourceTree = "<group>"; };
 		D8F804FE272B14760017034C /* PriceButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceButtonView.swift; sourceTree = "<group>"; };
 		D8F804FF272B14760017034C /* PriceButtonViewData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PriceButtonViewData.swift; sourceTree = "<group>"; };
 		D8F80503272B1C650017034C /* AdditionalInfoComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoComponent.swift; sourceTree = "<group>"; };
@@ -195,7 +197,6 @@
 				D8536E172726B6AF00D138EA /* Components */,
 				D8536E0D2726B5C000D138EA /* Scenes */,
 				D8536E302726CC4C00D138EA /* Utilities */,
-				D8536DFD2725F3CE00D138EA /* ViewController.swift */,
 				D8536DF92725F3CE00D138EA /* AppDelegate.swift */,
 				D8536E042725F3D100D138EA /* LaunchScreen.storyboard */,
 				D8536E072725F3D100D138EA /* Info.plist */,
@@ -278,7 +279,8 @@
 		D8536E302726CC4C00D138EA /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				D8EECB9D272DCEB700C201DB /* ViewState.swift */,
+				D8EECBBC272EC86200C201DB /* ColorHelper */,
+				D8EECBBF272ECE8000C201DB /* Enums */,
 				D8536E892727399800D138EA /* Extensions */,
 				D8536E58272712A800D138EA /* FontManager */,
 				D8536E4C272704B800D138EA /* ImageCacheManager */,
@@ -458,11 +460,11 @@
 		D8536EAC27296B3100D138EA /* Detail */ = {
 			isa = PBXGroup;
 			children = (
-				D8536EAD27296B6A00D138EA /* ItemDetailDataFormatterProtocol.swift */,
-				D8536EAF27296B8B00D138EA /* ItemDetailDataFormatter.swift */,
 				D8536EB127296E3000D138EA /* ItemDetailViewController.swift */,
 				D8536EB327296E3800D138EA /* ItemDetailViewModel.swift */,
 				D8536EB527296E4B00D138EA /* ItemDetailViewBuilder.swift */,
+				D8536EAF27296B8B00D138EA /* ItemDetailDataFormatter.swift */,
+				D8536EAD27296B6A00D138EA /* ItemDetailDataFormatterProtocol.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -519,6 +521,22 @@
 			path = ApiManagerModules;
 			sourceTree = "<group>";
 		};
+		D8EECBBC272EC86200C201DB /* ColorHelper */ = {
+			isa = PBXGroup;
+			children = (
+				D8EECBBD272EC87100C201DB /* ItunesCodeCaseColor.swift */,
+			);
+			path = ColorHelper;
+			sourceTree = "<group>";
+		};
+		D8EECBBF272ECE8000C201DB /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				D8EECB9D272DCEB700C201DB /* ViewState.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
 		D8F804FD272B14760017034C /* PriceButtonComponent */ = {
 			isa = PBXGroup;
 			children = (
@@ -533,6 +551,7 @@
 			children = (
 				D8F80503272B1C650017034C /* AdditionalInfoComponent.swift */,
 				D8F80506272B1C710017034C /* AdditionalInfoComponentData.swift */,
+				D8EECBBA272EBC7700C201DB /* AdditionalInfoDistributionData.swift */,
 			);
 			path = AdditionalInfoComponent;
 			sourceTree = "<group>";
@@ -666,13 +685,14 @@
 				D8536E4E272704C400D138EA /* ImageCacheManager.swift in Sources */,
 				D8536EA62729687E00D138EA /* ItemDetailViewData.swift in Sources */,
 				D8536EB427296E3800D138EA /* ItemDetailViewModel.swift in Sources */,
+				D8EECBBB272EBC7700C201DB /* AdditionalInfoDistributionData.swift in Sources */,
 				D8EECBB2272DD85000C201DB /* LottieViewController.swift in Sources */,
 				D8EECBAF272DD81200C201DB /* AtomicValue.swift in Sources */,
 				D8F80500272B14760017034C /* PriceButtonView.swift in Sources */,
 				D8536EB027296B8B00D138EA /* ItemDetailDataFormatter.swift in Sources */,
 				D8536E8B272739A900D138EA /* UICollectionView+Extension.swift in Sources */,
+				D8EECBBE272EC87100C201DB /* ItunesCodeCaseColor.swift in Sources */,
 				D8EECBAA272DD7B800C201DB /* LottieManagerProtocol.swift in Sources */,
-				D8536DFE2725F3CE00D138EA /* ViewController.swift in Sources */,
 				D8F80504272B1C650017034C /* AdditionalInfoComponent.swift in Sources */,
 				D8536EAB27296AC600D138EA /* ItunesDetailServiceProvider.swift in Sources */,
 				D8EECBB7272DD89E00C201DB /* ApiCallListenerManager.swift in Sources */,

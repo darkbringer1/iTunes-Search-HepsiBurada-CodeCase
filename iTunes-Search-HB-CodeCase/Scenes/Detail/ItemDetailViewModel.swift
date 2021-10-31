@@ -24,7 +24,6 @@ class ItemDetailViewModel {
         do {
             guard let urlRequest = try? ItunesDetailServiceProvider(request: getItemDetailRequest()).returnUrlRequest() else { return }
             fireApiCall(with: urlRequest, with: dataListener)
-            print("\(urlRequest)")
         }
     }
     

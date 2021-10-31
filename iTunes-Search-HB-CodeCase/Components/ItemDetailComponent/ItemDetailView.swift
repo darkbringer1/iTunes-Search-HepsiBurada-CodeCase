@@ -10,20 +10,19 @@ import BaseComponents
 
 class ItemDetailView: GenericBaseView<ItemDetailViewData> {
     
+    
     private lazy var containerView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
-        view.backgroundColor = .white
-        view.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 20).isActive = true
         return view
     }()
     
     private lazy var mainStack: UIStackView = {
         let stack = UIStackView(arrangedSubviews: [imagePriceRelease, trackNameDescription, additionalInfo])
         stack.translatesAutoresizingMaskIntoConstraints = false
-        stack.alignment = .top
+        stack.alignment = .center
         stack.distribution = .fillProportionally
         stack.axis = .vertical
         return stack
@@ -96,13 +95,13 @@ class ItemDetailView: GenericBaseView<ItemDetailViewData> {
     }()
     
     private lazy var trackNameDescription: LabelPackComponent = {
-        let info = LabelPackComponent()
+        let info = LabelPackComponent(data: getTrackNameComponentData())
         info.translatesAutoresizingMaskIntoConstraints = false
-        info.contentMode = .left
+        info.contentMode = .center
         return info
     }()
     private lazy var additionalInfo: AdditionalInfoComponent = {
-        let info = AdditionalInfoComponent()
+        let info = AdditionalInfoComponent(data: getAdditionalInfoComponentData())
         info.translatesAutoresizingMaskIntoConstraints = false
         return info
     }()
@@ -115,6 +114,7 @@ class ItemDetailView: GenericBaseView<ItemDetailViewData> {
         setupContainerViewLayers()
     }
     private func addComponents() {
+        containerView.backgroundColor = ItunesCodeCaseColor.background.value
         addSubview(containerView)
         containerView.addSubview(mainStack)
         
@@ -142,10 +142,10 @@ class ItemDetailView: GenericBaseView<ItemDetailViewData> {
                 imageContainer.setData(by: data.imageData)
                 releaseDate.setData(by: data.releaseDate)
                 priceTag.setData(by: data.priceTag)
+                additionalInfo.setData(by: data.additionalInfo)
                 trackNameDescription.setData(by: data.trackNameDescription)
                 mainStack.setCustomSpacing(10 , after: imagePriceRelease)
                 mainStack.setCustomSpacing(20, after: trackNameDescription)
-                additionalInfo.setData(by: data.additionalInfo)
             }
         }
     }
@@ -155,8 +155,25 @@ class ItemDetailView: GenericBaseView<ItemDetailViewData> {
         containerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
     }
     
-    func activationManager(by value: Bool) {
-        isHidden = !value
+    private func getTrackNameComponentData() -> LabelPackComponentData {
+        return LabelPackComponentData()
+            .setTitleLabelDistributionData(by: LabelDistributionData()
+                                            .setTextAlignment(by: .center)
+                                            .setFont(by: RobotoHelper.black(14).value))
+            .setSubtitleLabelDistributionData(by: LabelDistributionData()
+                                                .setTextAlignment(by: .center)
+                                                .setFont(by: RobotoHelper.regular(16).value))
+    }
+    private func getAdditionalInfoComponentData() -> AdditionalInfoComponentData {
+        return AdditionalInfoComponentData()
+            .setShortDescriptionLabelDistributionData(by: AdditionalInfoDistributionData()
+                                                        .setLineBreakMode(by: .byTruncatingTail)
+                                                        .setNumberOfLines(by: 3)
+                                                        .setFont(by: RobotoHelper.light(14).value))
+            .setLongDescriptionDistributionData(by: AdditionalInfoDistributionData()
+                                                    .setNumberOfLines(by: 25)
+                                                    .setLineBreakMode(by: .byTruncatingTail)
+                                                    .setFont(by: RobotoHelper.regular(16).value))
     }
     
 }

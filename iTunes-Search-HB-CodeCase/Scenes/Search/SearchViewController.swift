@@ -18,7 +18,6 @@ class SearchViewController: BaseViewController<SearchViewModel> {
     
     override func prepareViewControllerConfigurations() {
         super.prepareViewControllerConfigurations()
-        view.backgroundColor = #colorLiteral(red: 0.6941176471, green: 0.4, blue: 0.8, alpha: 1)
         addSearchButton()
         addMainComponent()
         addViewModelListeners()
@@ -129,16 +128,7 @@ extension SearchViewController: UISearchBarDelegate {
         }
     }
     
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        print("begin editing")
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        print("end editing")
-    }
-    
     func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        print("\(selectedScope)")
         viewModel.clearOffset()
         let entity = viewModel.selectedScopeToPathConverter(scope: selectedScope)
         viewModel.entity = entity
@@ -146,7 +136,6 @@ extension SearchViewController: UISearchBarDelegate {
     }
 
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        print("cancel tapped")
         search(shouldShow: false)
     }
     

@@ -27,7 +27,7 @@ class PriceButtonView: GenericBaseView<PriceButtonViewData> {
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
         view.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        view.backgroundColor = #colorLiteral(red: 0.4117647059, green: 0.6509803922, blue: 0.9764705882, alpha: 1)
+        view.backgroundColor = ItunesCodeCaseColor.priceButton.value
         return view
     }()
     

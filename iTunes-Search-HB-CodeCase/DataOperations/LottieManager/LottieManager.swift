@@ -29,14 +29,12 @@ class LottieManager: LottieManagerProtocol {
     }
     
     func onPreExecute() {
-        print("onPreExecute fired")
         if animationArray.count == 0 {
             fireAnimation()
         }
     }
     
     func onPostExecute() {
-        print("onPostExecute fired")
         if animationArray.count == 1 {
             task1.send(true)
         }
@@ -58,7 +56,6 @@ class LottieManager: LottieManagerProtocol {
             self.lottiViewController.modalTransitionStyle = .crossDissolve
             self.lottiViewController.modalPresentationStyle = .overFullScreen
             topMostViewController.present(self.lottiViewController, animated: true) { [weak self] in
-                print("LOTTIE FIRED")
                 self?.task2.send(true)
             }
         }
@@ -68,7 +65,6 @@ class LottieManager: LottieManagerProtocol {
     private func stopAnimation() {
         DispatchQueue.main.async {
             self.lottiViewController.animationOperationKiller { [weak self] in
-                print("LOTTIE STOPPED")
                 self?.animationArray.removeAll()
             }
         }

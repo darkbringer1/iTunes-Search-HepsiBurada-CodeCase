@@ -17,12 +17,10 @@ class ApiCallListenerManager: ApiCallListener {
     }
     
     func onPreExecute() {
-        print("\(#function)")
         animationManager.onPreExecute()
     }
     
     func onPostExecute() {
-        print("\(#function)")
         animationManager.onPostExecute()
     }
     

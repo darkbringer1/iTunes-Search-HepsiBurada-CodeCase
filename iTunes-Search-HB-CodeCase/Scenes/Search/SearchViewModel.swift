@@ -37,7 +37,6 @@ class SearchViewModel {
         do {
             guard let urlRequest = try? ItunesServiceProvider(request: getSearchRequest(term: term, entity: entity)).returnUrlRequest() else { return }
             fireApiCall(with: urlRequest, with: dataListener)
-            print("\(urlRequest)")
         }
     }
     
@@ -121,7 +120,6 @@ extension SearchViewModel: DataProviderProtocol {
     }
     
     func selectedItem(at index: Int) {
-        print("index: \(index)")
         //detail view will show according to below methods(to be added
         detailViewState?(SearchDetailRequest(id: dataFormatter.getItemId(at: index)))
     }

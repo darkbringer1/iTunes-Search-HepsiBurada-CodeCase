@@ -26,7 +26,7 @@ class AdditionalInfoComponent: GenericBaseView<AdditionalInfoComponentData> {
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10
         view.clipsToBounds = true
-        view.backgroundColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        view.backgroundColor = ItunesCodeCaseColor.infoCard.value
         return view
     }()
     
@@ -66,12 +66,16 @@ class AdditionalInfoComponent: GenericBaseView<AdditionalInfoComponentData> {
         return label
     }()
     
-    
     override func addMajorViewComponents() {
         super.addMajorViewComponents()
         addComponents()
     }
     
+    override func setupViewConfigurations() {
+        super.setupViewConfigurations()
+        setupShortDescriptionConfigurations()
+        setupLongDescriptionConfigurations()
+    }
     private func addComponents() {
         addSubview(shadowContainer)
         shadowContainer.addSubview(container)
@@ -95,6 +99,7 @@ class AdditionalInfoComponent: GenericBaseView<AdditionalInfoComponentData> {
             mainStack.trailingAnchor.constraint(equalTo: container.trailingAnchor, constant: -10),
             
         ])
+        
     }
     
     override func loadDataView() {
@@ -102,6 +107,24 @@ class AdditionalInfoComponent: GenericBaseView<AdditionalInfoComponentData> {
         guard let data = returnData() else { return }
         shortDescription.text = data.shortDescription
         longDescription.text = data.longDescription
+    }
+    
+    private func setupShortDescriptionConfigurations() {
+        guard let data = returnData() else { return }
+        shortDescription.lineBreakMode = data.shortDescriptionDistributionData.lineBreakMode
+        shortDescription.numberOfLines = data.shortDescriptionDistributionData.numberOfLines
+        shortDescription.contentMode = data.shortDescriptionDistributionData.contentMode
+        shortDescription.textAlignment = data.shortDescriptionDistributionData.textAlignment
+        shortDescription.font = data.shortDescriptionDistributionData.font
+    }
+    
+    private func setupLongDescriptionConfigurations() {
+        guard let data = returnData() else { return }
+        longDescription.lineBreakMode = data.longDescriptionDistributionData.lineBreakMode
+        longDescription.numberOfLines = data.longDescriptionDistributionData.numberOfLines
+        longDescription.contentMode = data.longDescriptionDistributionData.contentMode
+        longDescription.textAlignment = data.longDescriptionDistributionData.textAlignment
+        longDescription.font = data.longDescriptionDistributionData.font
     }
     
 }

@@ -28,7 +28,8 @@ class ItemDetailDataFormatter: ItemDetailDataFormatterProcol {
                                   priceTag: PriceButtonViewData(price: guaranteedPrice),
                                   additionalInfo: AdditionalInfoComponentData(
                                     shortDescription: shordDescription ?? "No Description given about this product",
-                                    longDescription: longDescription ?? "No Description given about this product"))
+                                    longDescription: longDescription ?? "No Description given about this product")
+        )
     }
     
     //image url as string. if url is nil will return empty string to prevent a crash
